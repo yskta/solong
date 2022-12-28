@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:00:00 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/28 19:25:25 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/12/28 19:37:31 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int main(int argc, char *argv[])
     static int fd;
     
     fd = open_map(fd, argc, argv);
+    
     return(0);
 }
