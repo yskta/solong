@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:00:11 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/29 00:21:37 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/12/29 00:22:39 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct players{
     int collected_cnt;
     int current_position_row;
     int current_position_column;
-}player_t
+}player_t;
 
 typedef struct game_datas{
     map_data_t  map_data;
