@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:00:11 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/28 23:46:21 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/12/29 00:07:34 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,19 @@ typedef struct map_datas{
     int     nbr_of_player;
 }map_data_t;
 
+typedef struct map_images{
+    t_image space;
+    t_image wall;
+    t_image collectible;
+    t_image exit;
+    t_image player;
+}map_image_t;
+
+
+
 typedef struct game_datas{
     map_data_t  map_data;
+    map_image_t map_image;
 }game_data_t;
-
 
 #endif

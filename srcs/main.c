@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:00:00 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/28 23:47:50 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/12/29 00:02:54 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ void read_map(int fd, map_data_t  map_data)
 
 void map_check(char *game_map[])
 {
-    
+    //追記予定
+    exit_and_put_error(INVARID_MAP);
 }
 
 int main(int argc, char *argv[])
@@ -65,5 +66,6 @@ int main(int argc, char *argv[])
     init_map(map_data);
     read_map(fd, map_data);
     map_check(map_data->game_map);
+    
     return(0);
 }
