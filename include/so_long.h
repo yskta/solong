@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:00:11 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/28 23:39:54 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/12/28 23:46:21 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # define MAX_LINES      100000
 # define WRONG_ARGC     1
 # define OPEN_ERROR     2
-# defien INVARID_MAP    3 
+# define READ_ERROR     3
+# define INVARID_MAP    4 
 
 typedef struct map_datas{
     char    *game_map[MAX_LINES];
