@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:00:11 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/29 00:07:34 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/12/29 00:21:37 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define INVARID_MAP    4 
 
 typedef struct map_datas{
-    char    *game_map[MAX_LINES];
+    char    *map[MAX_LINES];
     int     height;
     int     width;
     int     nbr_of_enemy;
@@ -41,10 +41,16 @@ typedef struct map_images{
     t_image player;
 }map_image_t;
 
-
+typedef struct players{
+    int steps;
+    int collected_cnt;
+    int current_position_row;
+    int current_position_column;
+}player_t
 
 typedef struct game_datas{
     map_data_t  map_data;
+    player_t    player_data;
     map_image_t map_image;
 }game_data_t;
 

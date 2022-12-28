@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:00:00 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/29 00:02:54 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/12/29 00:21:53 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
     fd = open_map(fd, argc, argv);
     init_map(map_data);
     read_map(fd, map_data);
-    map_check(map_data->game_map);
+    map_check(map_data->map);
     
     return(0);
 }
