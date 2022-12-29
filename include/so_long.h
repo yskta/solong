@@ -6,13 +6,14 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:00:11 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/29 19:02:12 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/12/29 19:10:34 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "../minilibx-linux/mlx.h"
 # include "../gnl/get_next_line.h"
 # include <stdlib.h>
 # include <sys/types.h>
