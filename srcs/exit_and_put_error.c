@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:13:28 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/28 23:51:53 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/12/29 18:03:13 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ void exit_and_put_error(int type_of_error)
         ft_putstr_fd("Error(Read failed)\n", 1);
     else if (type_of_error == INVARID_MAP)
         ft_putstr_fd("Error(Invalid map)\n", 1);
+    else if (type_of_error == ERROR_AT_MLX_INIT)
+        ft_putstr_fd("Error at mlx_init\n", 1);
+    else if (type_of_error == ERROR_AT_MLX_WIN)
+        ft_putstr_fd("Error at mlx_win\n", 1);
+    else if (type_of_error == ERROR_AT_XPM_TO_FILE)
+        ft_putstr_fd("Error at set_image\n", 1);
     
     exit(1);
 }

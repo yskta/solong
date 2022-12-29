@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   0_main.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:00:00 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/29 15:50:57 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/12/29 18:39:57 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,35 +25,29 @@ static void prepare_for_starting_game(int fd, t_game_all_data *game_all_data)
     read_map(fd, &game_all_data->map_data);
     check_map(&game_all_data->map_data);
     set_map(game_all_data);
+    put_map(game_all_data);
+    set_key_hook(game_all_data);
 }
 
-static int open_map(int fd, int argc, char argv[])
+static void continueing_game(t_game_all_data *game_all_data)
 {
-    if (argc != 2)
-        exit_and_put_error(WRONG_ARGC);
-    fd = open(argv[1], O_RDONLY);
-    if (fd == -1)
-        exit_and_put_error(OPEN_ERROR);
-    return (fd);
+    
 }
 
-/*
-void map_check(char *game_map[])
+static void destroy_game(t_game_all_data *game_all_data)
 {
-    //追記予定
-    exit_and_put_error(INVARID_MAP);
+
 }
-*/
 
 int main(int argc, char *argv[])
 {
-    static int fd;
+    static int fd = 0;
     t_game_all_data game_all_data;
-    
-    fd = 0;
+
     init_game_all_data(&game_all_data);
     fd = open_map(fd, argc, argv);
     prepare_for_starting_game(fd, &game_all_data);
-    
+    on_game();
+    end_game();
     return(0);
 }
