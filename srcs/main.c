@@ -6,14 +6,28 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:00:00 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/29 00:21:53 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/12/29 15:50:57 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "../gnl/get_next_line.h"
 
-int open_map(int fd, int argc, char argv[])
+static void init_game_all_data(t_game_all_data *game_all_data)
+{
+    init_map_data(&game_all_data->map_data);
+    init_map_image(&game_all_data->map_image);
+    init_player_data(&game_all_data->player_data);
+}
+
+static void prepare_for_starting_game(int fd, t_game_all_data *game_all_data)
+{
+    read_map(fd, &game_all_data->map_data);
+    check_map(&game_all_data->map_data);
+    set_map(game_all_data);
+}
+
+static int open_map(int fd, int argc, char argv[])
 {
     if (argc != 2)
         exit_and_put_error(WRONG_ARGC);
@@ -23,49 +37,23 @@ int open_map(int fd, int argc, char argv[])
     return (fd);
 }
 
-void init_map(map_data_t map_data)
-{
-    map_data->game_map = NULL;
-    map_data->height = 0;
-    map_data->width = 0;
-    map_data->nbr_of_enemy = 0;
-    map_data->nbr_of_collectable = 0;
-    map_data->nbr_of_exit = 0;
-    map_data->nbr_of_player = 0;
-}
-
-void read_map(int fd, map_data_t  map_data)
-{
-    char *read_line;
-    int  line;
-
-    line = 0;
-    while (read_map != NULL)
-    {
-        read_line = get_next_line(fd);
-        map_data->game_map[line] = read_line;
-        free(read_line);
-        line++;
-    }
-    if (map_data->game_map == NULL)
-        exit_and_put_error(READ_ERROR);
-}
-
+/*
 void map_check(char *game_map[])
 {
     //追記予定
     exit_and_put_error(INVARID_MAP);
 }
+*/
 
 int main(int argc, char *argv[])
 {
-    static int  fd;
-    map_data_t  map_data;
+    static int fd;
+    t_game_all_data game_all_data;
     
+    fd = 0;
+    init_game_all_data(&game_all_data);
     fd = open_map(fd, argc, argv);
-    init_map(map_data);
-    read_map(fd, map_data);
-    map_check(map_data->map);
+    prepare_for_starting_game(fd, &game_all_data);
     
     return(0);
 }
