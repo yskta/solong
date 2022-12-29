@@ -6,12 +6,11 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:00:00 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/29 18:39:57 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/12/29 19:05:01 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "../gnl/get_next_line.h"
 
 static void init_game_all_data(t_game_all_data *game_all_data)
 {
@@ -31,12 +30,13 @@ static void prepare_for_starting_game(int fd, t_game_all_data *game_all_data)
 
 static void continueing_game(t_game_all_data *game_all_data)
 {
-    
+    mlx_loop_hook(game_all_data->mlx, );
+    mlx_loop(game_all_data->mlx);
 }
 
 static void destroy_game(t_game_all_data *game_all_data)
 {
-
+    
 }
 
 int main(int argc, char *argv[])
