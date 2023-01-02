@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   0_main.c                                           :+:      :+:    :+:   */
+/*   2_read_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 17:26:50 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 02:13:20 by yokitaga         ###   ########.fr       */
+/*   Created: 2023/01/02 18:19:01 by yokitaga          #+#    #+#             */
+/*   Updated: 2023/01/03 02:19:05 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/so_long.h"
 
-int main(int argc, char *argv[])
+void read_map(char *argv, t_data *data)
 {
-    t_data  *data;
+    size_t  fd;
 
-    check_arg(argc, argv, data);
-    read_map(argv[1], data);
-    check_map(data);
-    init_all(data);
-    render_map(data);
-    mlx_hook();
-    mlx_hook();
-    mlx_hook();
-    mlx_loop();
-    ft_free();
+    fd = open(argv, O_RDONLY);
 }
+
