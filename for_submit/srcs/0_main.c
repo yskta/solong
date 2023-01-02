@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:00:00 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/29 19:05:01 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/02 13:34:01 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void init_game_all_data(t_game_all_data *game_all_data)
     init_player_data(&game_all_data->player_data);
 }
 
-static void prepare_for_starting_game(int fd, t_game_all_data *game_all_data)
+static void starting_game(int fd, t_game_all_data *game_all_data)
 {
     read_map(fd, &game_all_data->map_data);
     check_map(&game_all_data->map_data);
@@ -30,11 +30,11 @@ static void prepare_for_starting_game(int fd, t_game_all_data *game_all_data)
 
 static void continueing_game(t_game_all_data *game_all_data)
 {
-    mlx_loop_hook(game_all_data->mlx, );
+    mlx_loop_hook(game_all_data->mlx,  render_next_frame, game_all_data);
     mlx_loop(game_all_data->mlx);
 }
 
-static void destroy_game(t_game_all_data *game_all_data)
+static void end_game(t_game_all_data *game_all_data)
 {
     
 }
@@ -46,8 +46,8 @@ int main(int argc, char *argv[])
 
     init_game_all_data(&game_all_data);
     fd = open_map(fd, argc, argv);
-    prepare_for_starting_game(fd, &game_all_data);
-    on_game();
+    starting_game(fd, &game_all_data);
+    continueing_game();
     end_game();
     return(0);
 }
