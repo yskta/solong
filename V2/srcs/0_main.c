@@ -6,7 +6,16 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:50 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/02 17:26:50 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/02 18:17:59 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./includes/so_long.h"
+
+int main(int argc, char *argv[])
+{
+    t_data  data;
+
+    init_all_data(&data);
+    
+}

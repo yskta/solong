@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:00:11 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/29 19:10:34 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/02 17:48:52 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define ERROR_AT_XPM_TO_FILE -94
 
 typedef struct MAP_DATES{
-    char        **map;
+    char       **map;
     size_t     height;
     size_t     width;
     size_t     player_position_line;
