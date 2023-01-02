@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 18:19:01 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 02:22:07 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/03 02:38:28 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,26 @@
 
 void read_map(char *argv, t_data *data)
 {
-    size_t  fd;
-
-    fd = open(argv, O_RDONLY);
-    if (fd == -1)
-        
+    char    *map;
+    char    *line;
+    
+    data->map.fd = open(argv, O_RDONLY);
+    if (data->map.fd == -1)
+        put_error_and_exit("OPEN ERROR", data);
+    map = ft_strdup("");
+    data->map.height = 0;
+    while(1)
+    {
+        line = get_next_line(data->map.fd);
+        if (line == NULL)
+            break;
+        map = ft_strjoin(map, line);
+        free(line);
+        data->map.height++;
+    }
+    close(data->map.fd);
+    check_for_empty_line(map, data);
+    data->map.map = ft_split(map, '\n');
+    
 }
 

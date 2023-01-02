@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:54 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 01:55:33 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/03 02:26:51 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SO_LONG_H
 
 # include "../gnl/get_next_line.h"
+# include "../printf/ft_printf.h"
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/stat.h>
