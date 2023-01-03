@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:54 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 23:20:23 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/04 00:53:26 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,15 @@ void    init_mlx(t_data *data);
 void    init_image(t_data *data);
 t_image xpm_file_to_image(void *mlx, char *path, t_data *data);
 
+int render_map(t_data *data);
+void id_and_put_image(t_data *data, size_t x, size_t y);
+
+int key_action(int key, t_data *data);
+void updata_and_render_map(t_data *data, size_t update_x, size_t update_y, size_t update_player_direction);
+
+int finish_game(t_data *data);
+int close_game(t_data *data);
+
+void put_error_and_exit(char *str, t_data *data);
 
 #endif

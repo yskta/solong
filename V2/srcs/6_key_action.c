@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   7_key_action.c                                     :+:      :+:    :+:   */
+/*   6_key_action.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 22:33:53 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 23:55:10 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/04 00:50:59 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int key_action(int keysym, t_data *data)
+int key_action(int key, t_data *data)
 {
-    if (keysym == KEY_UP || KEY_W)
+    if (key == KEY_UP || key == KEY_W)
         updata_and_render_map(data, data->map.player.x, data->map.player.y - 1, BACK);
-    else if (keysym == KEY_DOWN || KEY_S)
+    else if (key == KEY_DOWN || key == KEY_S)
         updata_and_render_map(data, data->map.player.x, data->map.player.y + 1, FRONT);
-    else if (keysym == KEY_RIGHT || KEY_D)
+    else if (key == KEY_RIGHT || key == KEY_D)
         updata_and_render_map(data, data->map.player.x, data->map.player.y - 1, BACK);
-    else if (keysym == KEY_LEFT || KEY_A)
+    else if (key == KEY_LEFT || key == KEY_A)
         updata_and_render_map(data, data->map.player.x - 1, data->map.player.y, LEFT);
-    else if (keysym == KEY_ESC || KEY_Q)
+    else if (key == KEY_ESC || key == KEY_Q)
         close_game(data);
     return (0);
 }
