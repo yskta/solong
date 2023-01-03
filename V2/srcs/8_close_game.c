@@ -1,19 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   6_put_error_and_exit.c                             :+:      :+:    :+:   */
+/*   8_close_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/03 02:19:55 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 11:29:46 by yokitaga         ###   ########.fr       */
+/*   Created: 2023/01/03 22:58:58 by yokitaga          #+#    #+#             */
+/*   Updated: 2023/01/03 23:30:28 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-void put_error_and_exit(char *str, t_data *data)
-{
-    ft_printf("%s\n", str);
-    exit(1);
-}

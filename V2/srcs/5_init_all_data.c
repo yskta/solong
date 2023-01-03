@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 02:06:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 20:34:40 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/03 23:20:40 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void init_map(t_map map)
     map.n_player = 0;
     map.n_collectibel = 0;
     map.steps = 0;
-    map.player_image = FRONT;
+    map.player_direction = FRONT;
 }
 
 void init_mlx(t_data *data)

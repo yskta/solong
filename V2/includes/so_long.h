@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:54 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 17:04:56 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/03 23:20:23 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,18 @@
 # define PLAYER			'P'
 # define EXIT			'E'
 
+# define KEY_UP     65362
+# define KEY_LEFT   65361
+# define KEY_RIGHT  65363
+# define KEY_DOWN   65364
+# define KEY_ESC    65307
+
+# define KEY_W      119
+# define KEY_A      97
+# define KEY_S      115
+# define KEY_D      100
+# define KEY_Q      113
+
 typedef struct s_data{
     void        *mlx;
     void        *mlx_win;
@@ -75,7 +87,7 @@ typedef struct s_map{
     size_t     n_player;
     size_t     n_collectibel;
     size_t     steps;
-    size_t     player_image;
+    size_t     player_direction;
     t_pos      player;
 }t_map;
 
@@ -92,7 +104,6 @@ void    init_map(t_map map);
 void    init_mlx(t_data *data);
 void    init_image(t_data *data);
 t_image xpm_file_to_image(void *mlx, char *path, t_data *data);
-
 
 
 #endif
