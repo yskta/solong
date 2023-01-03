@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   0_main.c                                           :+:      :+:    :+:   */
+/*   6_key_action.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 17:26:50 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 22:59:30 by yokitaga         ###   ########.fr       */
+/*   Created: 2023/01/03 22:33:53 by yokitaga          #+#    #+#             */
+/*   Updated: 2023/01/03 22:37:31 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int main(int argc, char *argv[])
+int key_action(int keysym, t_data *data)
 {
-    t_data  *data;
-
-    data->flag = FALSE;
-    check_arg(argc, argv, data);
-    read_map(argv[1], data);
-    check_map(data);
-    init_all_data(data);
-    render_map(data);
-    mlx_hook(data->mlx_win, DESTROY_NOTIFY, 1L << 17, close_win, data);
-    mlx_key_hook(data->mlx_win, key_action, data);
-    mlx_loop_hook(data->mlx, render_map, data);
-    mlx_loop(data->mlx);
-    free_all(data);
+    return (0);
 }
