@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:54 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 02:40:54 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/03 12:03:02 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@
 
 # define FALSE   0
 # define TRUE    1
+
+# define FRONT   0
+# define BACK    1
+# define RIGHT   2
+# define LEFT    3
 
 # define IMG_HEIGHT			32
 # define IMG_WIDTH			32
@@ -55,6 +60,11 @@ typedef struct s_map{
     size_t     fd;
     size_t     height;
     size_t     width;
+    size_t     n_exit;
+    size_t     n_player;
+    size_t     n_collectibel;
+    size_t     steps;
+    size_t     player_image;
     t_pos      player;
 }t_map;
 

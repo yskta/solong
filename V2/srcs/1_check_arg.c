@@ -6,7 +6,8 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 01:59:42 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 01:59:43 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/03 11:30:23 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/so_long.h"
