@@ -23,7 +23,6 @@ void init_map_data(t_map_data *map_data)
     map_data->nbr_of_collectable = 0;
     map_data->nbr_of_exit = 0;
     map_data->nbr_of_player = 0;
-
 }
 
 void init_each_map_image_data(t_image *image)
