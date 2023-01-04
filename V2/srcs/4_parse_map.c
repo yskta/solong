@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3_parse_map.c                                      :+:      :+:    :+:   */
+/*   4_parse_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:28:11 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/04 12:01:53 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/04 12:12:34 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void check_inside(t_data *data)
             else if (data->map.map[y][x] == EXIT)
                 data->map.n_exit++;
             else if (ft_strchr("C01PE", data->map.map[y][x]) == NULL)
-                put_error_and_exit("INVALID ERROR", data);
+                put_error_and_exit("INVALID MAP", data);
             x++;
         }
         y++;
@@ -84,11 +84,11 @@ void check_inside(t_data *data)
 void check_parm(t_data *data)
 {
     if (data->map.n_collectibel == 0)
-        put_error_and_exit("INVALID ERROR", data);
+        put_error_and_exit("INVALID MAP", data);
     else if (data->map.n_exit != 1)
-        put_error_and_exit("INVALID ERROR", data);
+        put_error_and_exit("INVALID MAP", data);
     else if (data->map.n_player != 1)
-        put_error_and_exit("INVALID ERROR", data);
+        put_error_and_exit("INVALID MAP", data);
 }
 
 void check_position(t_data *data)
@@ -104,8 +104,8 @@ void check_position(t_data *data)
         {
             if (data->map.map[y][x] == COLLECTIBLE || data->map.map[y][x] == EXIT || data->map.map[y][x] == PLAYER)
             {
-                if (data->map.map[y-1][x-1] == WALL && data->map.map[y-1][x] == WALL && data->map.map[y-1][x+1] == WALL && data->map.map[y][x-1] == WALL && data->map.map[y][x+1] == WALL && && data->map.map[y+1][x-1] == WALL && && data->map.map[y+1][x] == WALL && && data->map.map[y+1][x+1] == WALL)
-                    put_error_and_exit("INVALID ERROR", data);
+                if (data->map.map[y-1][x-1] == WALL && data->map.map[y-1][x] == WALL && data->map.map[y-1][x+1] == WALL && data->map.map[y][x-1] == WALL && data->map.map[y][x+1] == WALL && data->map.map[y+1][x-1] == WALL && data->map.map[y+1][x] == WALL && data->map.map[y+1][x+1] == WALL)
+                    put_error_and_exit("INVALID MAP", data);
             }
             x++;
         }
