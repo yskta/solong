@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 18:19:01 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 11:29:57 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/04 10:18:33 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,28 @@ void read_map(char *argv, t_data *data)
         data->map.height++;
     }
     close(data->map.fd);
-    check_for_empty_line(map, data);//メモ後に実装必要かも
+    check_empty_line(map, data);
     data->map.map = ft_split(map, '\n');
     data->flag = TRUE;
 }
 
+void check_empty_line(char *map, t_data *data)
+{
+    size_t  i;
 
+    i = 0;
+    if (map[0] == '\n')
+    {
+        free(map);
+        put_error_and_exit("INVARID MAP", data);
+    }
+    while(map[i+1] != '\0')
+    {
+        if (map[i] == '\n' && map[i+1] != '\n')
+        {
+            free(map);
+            put_error_and_exit("INVARID MAP", data);
+        }
+        i++;
+    }
+}
