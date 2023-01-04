@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:28:11 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/04 10:51:14 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/04 11:39:55 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void check_line(t_data *data)
     size_t width;
 
     y = 0;
-    width = data->map.map[0];
+    width = ft_strlen(data->map.map[0]);
     while (y < data->map.height)
     {
         if (ft_strlen(ft_strlen(data->map.map[y]) != width)
@@ -35,11 +35,20 @@ void check_line(t_data *data)
             put_error_and_exit("INVARID MAP", data);
         y++;
     }
+    data->map.width = width;
 }
 
 void check_column(t_data *data)
 {
-    
+    size_t x;
+
+    x = 0;
+    while (x < data->map.width)
+    {
+        if (data->map.map[0][x] != WALL || data->map.map[data->map.height - 1][x] != WALL)
+            put_error_and_exit("INVARID MAP", data);
+        x++;
+    }
 }
 
 void count_parm(t_data *data)
