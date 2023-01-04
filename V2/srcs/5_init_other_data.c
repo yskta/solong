@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   4_init_all_data.c                                  :+:      :+:    :+:   */
+/*   5_init_all_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 02:06:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 23:20:40 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/04 12:05:26 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
-
-void init_all_data(t_data *data)
+void init_other_data(t_data *data)
 {
-    init_map(data->map);
     init_mlx(data);
     init_image(data);
-}
-
-void init_map(t_map map)
-{
-    map.width = ft_strlen(map.map[0]);
-    map.n_exit = 0;
-    map.n_player = 0;
-    map.n_collectibel = 0;
-    map.steps = 0;
-    map.player_direction = FRONT;
 }
 
 void init_mlx(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:50 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/04 10:23:28 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/04 12:05:58 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ int main(int argc, char *argv[])
     data->flag = FALSE;
     check_arg(argc, argv, data);
     read_map(argv[1], data);
+    init_map(data->map);
     parse_map(data);
-    init_all_data(data);
+    init_other_data(data);
     render_map(data);
     mlx_hook(data->mlx_win, DESTROY_NOTIFY, 1L << 17, close_game, data);
     mlx_key_hook(data->mlx_win, key_action, data);
