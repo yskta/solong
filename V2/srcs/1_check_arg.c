@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 01:59:42 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/05 17:15:15 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:25:20 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,4 @@ void chech_arg(int argc, char *argv, t_data *data)
         put_error_and_exit("ARG ERROR", data);
     free(str);
 }
-
-/*
-OK：~.ber
-KO："~..ber/~.ber.ber/~.berber/"
-*/
 

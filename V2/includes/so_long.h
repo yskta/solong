@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:54 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/05 17:00:12 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:30:53 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,23 +88,40 @@ typedef struct s_image{
 	size_t		y;
 }t_image;
 
+void    chech_arg(int argc, char *argv, t_data *data);
+
 void    read_map(char *argv, t_data *data);
+void    check_empty_line(char *map, t_data *data);
+
+void    init_map(t_map map);
 
 void    init_all_data(t_data *data);
-void    init_map(t_map map);
+
+void    parse_map(t_data *data);
+void    check_line(t_data *data);
+void    check_column(t_data *data);
+void    check_inside(t_data *data);
+void    check_parm(t_data *data);
+void    check_position(t_data *data);
+
+void    init_other_data(t_data *data);
 void    init_mlx(t_data *data);
 void    init_image(t_data *data);
 t_image xpm_file_to_image(void *mlx, char *path, t_data *data);
 
-int render_map(t_data *data);
-void id_and_put_image(t_data *data, size_t x, size_t y);
+int     render_map(t_data *data);
+void    id_and_put_image(t_data *data, size_t x, size_t y);
 
-int key_action(int key, t_data *data);
-void updata_and_render_map(t_data *data, size_t update_x, size_t update_y, size_t update_player_direction);
+int     key_action(int key, t_data *data);
+void    updata_and_render_map(t_data *data, size_t update_x, size_t update_y, size_t update_player_direction);
 
-int finish_game(t_data *data);
-int close_game(t_data *data);
+int     win_game(t_data *data);
+int     close_game(t_data *data);
 
-void put_error_and_exit(char *str, t_data *data);
+void    free_all(t_data *data);
+void    destroy_images(t_data *data)
+void    free_map(t_data *data);
+
+void    put_error_and_exit(char *str, t_data *data);
 
 #endif
