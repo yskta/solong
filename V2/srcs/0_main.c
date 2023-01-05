@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:50 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/04 12:05:58 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/05 15:50:43 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ int main(int argc, char *argv[])
     mlx_key_hook(data->mlx_win, key_action, data);
     mlx_loop_hook(data->mlx, render_map, data);
     mlx_loop(data->mlx);
-    free_all(data);
 }
