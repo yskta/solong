@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:54 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/05 14:44:06 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:00:12 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 typedef struct s_data{
     void        *mlx;
     void        *mlx_win;
-    size_t      flag;
+    size_t      map_flag;
     t_map       map;
     t_image		collectible;
     t_image		wall;
