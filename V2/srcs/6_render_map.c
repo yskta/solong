@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   5_render_map.c                                     :+:      :+:    :+:   */
+/*   6_render_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 02:13:58 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/03 23:21:27 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/05 14:44:25 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,7 @@ void id_and_put_image(t_data *data, size_t x, size_t y)
     else if (data->map.map[y][x] == EXIT)
         mlx_put_image_to_window (data->mlx, data->mlx_win, data->exit.xpm_ptr, x, y);
     else if (data->map.map[y][x] == PLAYER)
-    {
-        if (data->map.player_direction == FRONT)
-            mlx_put_image_to_window (data->mlx, data->mlx_win, data->player_front.xpm_ptr, x, y);
-	    else if (data->map.player_direction == LEFT)
-            mlx_put_image_to_window (data->mlx, data->mlx_win, data->player_left.xpm_ptr, x, y);
-	    else if (data->map.player_direction == RIGHT)
-            mlx_put_image_to_window (data->mlx, data->mlx_win, data->player_right.xpm_ptr, x, y);
-	    else if (data->map.player_direction == BACK)
-            mlx_put_image_to_window (data->mlx, data->mlx_win, data->player_back.xpm_ptr, x, y);
-    }
+        mlx_put_image_to_window (data->mlx, data->mlx_win, data->player.xpm_ptr, x, y);
 }
 
 

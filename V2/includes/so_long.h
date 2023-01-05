@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:54 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/04 23:38:57 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/05 14:44:06 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,16 @@
 
 # include "../gnl/get_next_line.h"
 # include "../printf/ft_printf.h"
+# include "../mlx/mlx.h"
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-
+# include <X11/X.h>
+# include <X11/keysym.h>
 
 # define FALSE   0
 # define TRUE    1
-
-# define FRONT   0
-# define BACK    1
-# define RIGHT   2
-# define LEFT    3
 
 # define IMG_HEIGHT			32
 # define IMG_WIDTH			32
@@ -35,10 +32,7 @@
 # define COLLECTIBLE_IMG    "images/collectible.xpm"
 # define WALL_IMG		    "images/wall.xpm"
 # define SPACE_IMG		    "images/space.xpm"	
-# define PLAYER_FRONT_IMG   "images/player_front.xpm"
-# define PLAYER_BACK_IMG    "images/player_front.xpm"
-# define PLAYER_RIGHT_IMG   "images/player_front.xpm"
-# define PLAYER_LEFT_IMG    "images/player_front.xpm"
+# define PLAYER_IMG         "images/player.xpm"
 # define EXIT_IMG           "images/exit.xpm"
 
 # define COLLECTIBLE	'C'
@@ -67,10 +61,7 @@ typedef struct s_data{
     t_image		collectible;
     t_image		wall;
 	t_image		space;
-    t_image		player_front;
-    t_image		player_back;
-    t_image		player_right;
-    t_image		player_left;
+    t_image		player;
 	t_image		exit;
 }t_data;
 
@@ -88,7 +79,6 @@ typedef struct s_map{
     size_t     n_player;
     size_t     n_collectibel;
     size_t     steps;
-    size_t     player_direction;
     t_pos      player;
 }t_map;
 

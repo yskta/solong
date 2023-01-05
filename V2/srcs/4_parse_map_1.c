@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   4_parse_map.c                                      :+:      :+:    :+:   */
+/*   4_parse_map_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:28:11 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/04 12:12:34 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/05 14:31:20 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void parse_map(t_data *data)
     count_inside(data);
     check_parm(data);
     check_position(data);
+    check_partition(data);
 }
 
 void check_line(t_data *data)
@@ -91,24 +92,3 @@ void check_parm(t_data *data)
         put_error_and_exit("INVALID MAP", data);
 }
 
-void check_position(t_data *data)
-{
-    size_t x;
-    size_t y;
-
-    y = 0;
-    while (y < data->map.height)
-    {
-        x = 0;
-        while (x < data->map.width)
-        {
-            if (data->map.map[y][x] == COLLECTIBLE || data->map.map[y][x] == EXIT || data->map.map[y][x] == PLAYER)
-            {
-                if (data->map.map[y-1][x-1] == WALL && data->map.map[y-1][x] == WALL && data->map.map[y-1][x+1] == WALL && data->map.map[y][x-1] == WALL && data->map.map[y][x+1] == WALL && data->map.map[y+1][x-1] == WALL && data->map.map[y+1][x] == WALL && data->map.map[y+1][x+1] == WALL)
-                    put_error_and_exit("INVALID MAP", data);
-            }
-            x++;
-        }
-        y++;
-    }
-}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   5_init_all_data.c                                  :+:      :+:    :+:   */
+/*   5_init_other_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 02:06:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/04 12:05:26 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/05 14:41:46 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ void init_image(t_data *data)
     data->collectible = xpm_file_to_image(data->mlx, COLLECTIBLE_IMG, data);
     data->wall = xpm_file_to_image(data->mlx, WALL_IMG, data);
     data->space = xpm_file_to_image(data->mlx, COLLECTIBLE_IMG, data);
-    data->player_front = xpm_file_to_image(data->mlx, PLAYER_FRONT_IMG, data);
-    data->player_back = xpm_file_to_image(data->mlx, PLAYER_BACK_IMG, data);
-    data->player_right = xpm_file_to_image(data->mlx, PLAYER_RIGHT_IMG, data);
-    data->player_left = xpm_file_to_image(data->mlx, PLAYER_LEFT_IMG, data);
+    data->player_front = xpm_file_to_image(data->mlx, PLAYER_IMG, data);
     data->exit = xpm_file_to_image(data->mlx, EXIT_IMG, data);
 }
 
