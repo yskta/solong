@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:45:46 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/27 18:45:50 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/06 00:20:48 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_showhex(unsigned int u, int fmt)
 	{
 		i--;
 		u_mod = u_dev % 16;
-		if (0 <= u_mod && u_mod <= 9)
+		if (u_mod <= 9)
 			num[i] = u_mod + '0';
 		else if (fmt == 'X')
 			num[i] = u_mod - 10 + 'A';
