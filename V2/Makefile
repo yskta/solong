@@ -6,17 +6,24 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 17:20:47 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/05 18:25:09 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/05 18:40:23 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-GEN_FLAGS = -Wall -Werror -Wextra
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
 MLX_FLSGS = = -lmlx -lXext -lX11
 
-LIBFT = ./libft/libft.a
+MLX_DIR = ./mlx
+PRINTF_DIR = ./printf
+LIBFT_DIR = ./libft
 SRCS_DIR = ./srcs
+OBJS_DIR = ./objs 
+
+PRINTF = $(PRINTF_DIR)/printf.a
+LIBFT = $(LIBFT_DIR)/libft.a
 
 SRCS = $(addprefix $(SRCS_DIR), 
 		0_main.c 
@@ -33,5 +40,21 @@ SRCS = $(addprefix $(SRCS_DIR),
 		)
 
 ${LIBFT}:
-			make all
+		cd $(LIBFT_DIR) && make all
+
+$(PRINTF):
+		cd $(PRINTF_DIR) && make all
+
+$(NAME): 
+		$(CC) $(SRCS) $(LIBFT) $(PRINTF) $(CFLAGS) $(MLX_FLSGS) -o $(NAME)
+
+all: $(NAME)
+
+clean:
+
+fclean:
+
+re:	fclean all
+
+.PHONY: all clean fclean re
 
