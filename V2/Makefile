@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 23:08:42 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/05 23:36:13 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/06 00:08:54 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,18 +25,18 @@ PRINTF = $(PRINTF_DIR)/printf.a
 LIBFT = $(LIBFT_DIR)/libft.a
 OBJS = $(SRCS:.c=.o)
 
-SRCS = $(addprefix $(SRCS_DIR), 
-		0_main.c 
-		1_check_arg.c 
-		2_read_map.c 
-		3_init_map.c 
-		4_parse_map_1.c 
-		5_parse_map_2.c 
-		6_render_map.c 
-		7_key_action.c 
-		8_end_game.c 
-		9_free.c 
-		10_put_error_and_exit.c 
+SRCS = $(addprefix $(SRCS_DIR),	\
+		0_main.c				\
+		1_check_arg.c			\
+		2_read_map.c			\
+		3_init_map.c			\
+		4_parse_map_1.c			\
+		5_parse_map_2.c			\
+		6_render_map.c			\
+		7_key_action.c			\
+		8_end_game.c			\
+		9_free.c				\
+		10_put_error_and_exit.c	\
 		)
 
 ${LIBFT}:
