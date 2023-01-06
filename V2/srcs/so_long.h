@@ -6,13 +6,14 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:54 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/06 17:03:43 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/06 18:50:08 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "../libft/libft.h"
 # include "../gnl/get_next_line.h"
 # include "../printf/ft_printf.h"
 # include "../minilibx-linux/mlx.h"
@@ -60,7 +61,7 @@ typedef struct s_pos{
 
 typedef struct s_map{
     char       **map;
-    size_t     fd;
+    ssize_t     fd;
     size_t     height;
     size_t     width;
     size_t     n_exit;
@@ -72,8 +73,8 @@ typedef struct s_map{
 
 typedef struct s_image{
     void        *xpm_ptr;
-	size_t      x;
-	size_t		y;
+	int         x;
+	int         y;
 }t_image;
 
 typedef struct s_data{
@@ -88,12 +89,12 @@ typedef struct s_data{
 	t_image		exit;
 }t_data;
 
-void    chech_arg(int argc, char *argv, t_data *data);
+void    check_arg(int argc, char **argv, t_data *data);
 
 void    read_map(char *argv, t_data *data);
 void    check_empty_line(char *map, t_data *data);
 
-void    init_map(t_map map);
+void    init_map(t_map *map);
 
 void    init_all_data(t_data *data);
 
@@ -113,13 +114,13 @@ int     render_map(t_data *data);
 void    id_and_put_image(t_data *data, size_t x, size_t y);
 
 int     key_action(int key, t_data *data);
-void    updata_and_render_map(t_data *data, size_t update_x, size_t update_y, size_t update_player_direction);
+void    updata_and_render_map(t_data *data, size_t update_x, size_t update_y);
 
 int     win_game(t_data *data);
 int     close_game(t_data *data);
 
 void    free_all(t_data *data);
-void    destroy_images(t_data *data)
+void    destroy_images(t_data *data);
 void    free_map(t_data *data);
 
 void    put_error_and_exit(char *str, t_data *data);

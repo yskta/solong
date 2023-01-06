@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:18:49 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/02 17:38:32 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/06 18:33:34 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_v2(char *s1, char *s2)
 {
 	char	*p;
 	size_t	i;

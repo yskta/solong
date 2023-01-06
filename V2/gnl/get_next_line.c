@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:18:56 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/16 12:28:29 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/06 18:33:53 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_read_get_save(int fd, char *save)
 			return (ft_free(save));
 		}
 		read_result[read_size] = '\0';
-		save = ft_strjoin(save, read_result);
+		save = ft_strjoin_v2(save, read_result);
 		if (save == NULL)
 			break;
 	}

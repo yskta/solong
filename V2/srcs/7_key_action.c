@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 22:33:53 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/06 17:04:10 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/06 18:51:25 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void updata_and_render_map(t_data *data, size_t update_x, size_t update_y)
     
     current_x = data->map.player.x;
     current_y = data->map.player.y;
-    if (data->map.map[update_x][update_y] == EXIT & data->map.n_collectibel == 0)
+    if (data->map.map[update_x][update_y] == EXIT && data->map.n_collectibel == 0)
         win_game(data);
     else if (data->map.map[update_x][update_y] == SPACE || data->map.map[update_x][update_y] == COLLECTIBLE)
     {
-        data->map.map[current_x][current_x] == SPACE;
+        data->map.map[current_x][current_y] = SPACE;
         if (data->map.map[update_x][update_y] == COLLECTIBLE)
             data->map.n_collectibel -= 1;
         data->map.player.x = update_x;

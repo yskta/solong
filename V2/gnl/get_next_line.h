@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:19:02 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/15 21:43:07 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/06 18:34:04 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *str);
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin_v2(char *s1, char *s2);
 char    *ft_free(char *str);
 char	*ft_read_get_save(int fd, char *save);
 char	*ft_get_outputline(char *save);
