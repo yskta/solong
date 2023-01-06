@@ -6,11 +6,11 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 14:30:29 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/05 17:15:48 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:04:38 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void check_position(t_data *data)
 {

@@ -6,9 +6,11 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 02:06:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/05 14:41:46 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:04:30 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# include "so_long.h"
 
 void init_other_data(t_data *data)
 {

@@ -6,11 +6,11 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 18:19:01 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/05 17:00:00 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:04:57 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void read_map(char *argv, t_data *data)
 {

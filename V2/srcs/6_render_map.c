@@ -6,11 +6,11 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 02:13:58 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/05 14:44:25 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:04:16 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 int render_map(t_data *data)
 {

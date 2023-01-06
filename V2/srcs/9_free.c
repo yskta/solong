@@ -6,11 +6,11 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 00:12:54 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/05 15:49:44 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:03:59 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void free_all(t_data *data)
 {

@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:54 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/05 17:30:53 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:03:43 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../gnl/get_next_line.h"
 # include "../printf/ft_printf.h"
-# include "../mlx/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/stat.h>
@@ -53,18 +53,6 @@
 # define KEY_D      100
 # define KEY_Q      113
 
-typedef struct s_data{
-    void        *mlx;
-    void        *mlx_win;
-    size_t      map_flag;
-    t_map       map;
-    t_image		collectible;
-    t_image		wall;
-	t_image		space;
-    t_image		player;
-	t_image		exit;
-}t_data;
-
 typedef struct s_pos{
     size_t  x;
     size_t  y;
@@ -87,6 +75,18 @@ typedef struct s_image{
 	size_t      x;
 	size_t		y;
 }t_image;
+
+typedef struct s_data{
+    void        *mlx;
+    void        *mlx_win;
+    size_t      map_flag;
+    t_map       map;
+    t_image		collectible;
+    t_image		wall;
+	t_image		space;
+    t_image		player;
+	t_image		exit;
+}t_data;
 
 void    chech_arg(int argc, char *argv, t_data *data);
 

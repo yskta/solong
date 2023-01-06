@@ -6,11 +6,11 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 22:33:53 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/05 15:51:53 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:04:10 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 int key_action(int key, t_data *data)
 {
