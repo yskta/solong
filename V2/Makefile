@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 23:08:42 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/06 18:53:35 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/06 19:41:58 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRCS = srcs/0_main.c \
        gnl/get_next_line.c \
 	   gnl/get_next_line_utils.c
 
-MLX = -Lmlx_linux -Imlx_linux -lXext -lX11 -lm
+MLX_FLAGS = -Lmlx_linux -Imlx_linux -lXext -lX11 -lm
 
 LIB = -L ./libft/libft.a -L ./printf/printf.a
 
@@ -37,7 +37,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(MLX_FLAGS) -c $< -o $@
 
 $(PRINTF):
 		cd ./printf && make all
@@ -45,8 +45,8 @@ $(PRINTF):
 ${LIBFT}:
 		cd ./libft && make all
 
-$(NAME): $(OBJS) $(LIBFT) $(PRINTF)
-	$(CC) $(OBJS) $(LIB) $(MLX) -o $(NAME)
+$(NAME): $(LIBFT) $(PRINTF) $(OBJS)
+	$(CC) $(OBJS) $(LIB) $(MLX_FLAGS) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
