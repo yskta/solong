@@ -6,13 +6,17 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 23:08:42 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/08 17:57:08 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/08 17:59:00 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 NAME = so_long
 CFLAGS = -Wall -Wextra -Werror
+
+LIBFT = ./libft/libft.a
+PRINTF = ./printf/printf.a
+MINILIBX = ./minilibx/libmlx_Linux.a
 
 SRCS = 	./src/0_main.c				\
 		./src/1_check_arg.c			\
@@ -28,7 +32,6 @@ SRCS = 	./src/0_main.c				\
 		./src/10_put_error_and_exit.c	\
 		./gnl/get_next_line.c 		\
 		./gnl/get_next_line_utils.c	\
-
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I/./include -Imlx_linux -O3 -c $< -o $@
