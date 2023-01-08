@@ -6,13 +6,14 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 23:08:42 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/08 17:59:00 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/08 18:35:12 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
 NAME = so_long
 CFLAGS = -Wall -Wextra -Werror
+
+CC = cc
 
 LIBFT = ./libft/libft.a
 PRINTF = ./printf/printf.a
@@ -33,29 +34,28 @@ SRCS = 	./src/0_main.c				\
 		./gnl/get_next_line.c 		\
 		./gnl/get_next_line_utils.c	\
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I/./include -Imlx_linux -O3 -c $< -o $@
-
-OBJS = $(SRCS:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(PRINTF) $(MINILIBX) $(OBJS)
-	$(CC) $(OBJS) -Lmlx_linux -lmlx_Linux -L/./libft/libft.a  -L/./printf/printf.a -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+$(NAME): $(LIBFT) $(PRINTF) $(MINILIBX)
+	$(CC) $(SRCS) $(CFLAGS) -I . -g3 -Lmlx_Linux -lmlx_Linux -L ./minilibx -Imlx_Linux -L ./libft -lft -lXext -lX11 -lm -lz -o $(NAME)
 
 $(LIBFT):
 	cd ./libft && make all
 
-$(PRINTF)
+$(PRINTF):
 	cd ./printf && make all
 
-$(MINILIBX)
+$(MINILIBX):
 	cd ./minilibx && ./configure
 
 clean:
-	rm -rf $(OBJS)
+	rm -f $(LIBFT_OBJS) $(NAME)
+	make clean -C ./libft
 
-fclean: clean
+fclean:
+	clean
 	rm -f $(NAME)
 
 re: fclean all
