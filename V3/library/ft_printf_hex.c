@@ -6,11 +6,11 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:45:46 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/27 18:45:50 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/08 23:02:26 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 char	*ft_showhex(unsigned int u, int fmt)
 {

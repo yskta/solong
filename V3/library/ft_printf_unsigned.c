@@ -6,11 +6,11 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:46:05 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/27 18:46:12 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/08 23:02:14 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ucntdigit(unsigned int n)
 {

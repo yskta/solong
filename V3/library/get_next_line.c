@@ -6,11 +6,11 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:18:56 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/12/16 12:28:29 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/08 22:54:12 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*ft_read_get_save(int fd, char *save)
 {
