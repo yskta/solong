@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:50 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/06 18:11:44 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/08 16:12:37 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     data = malloc(sizeof(t_data));
     check_arg(argc, argv, data);
     read_map(argv[1], data);
-    init_map(data->map);
+    init_map(&data->map);
     parse_map(data);
     init_other_data(data);
     render_map(data);
