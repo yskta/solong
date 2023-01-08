@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 23:08:42 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/08 18:35:12 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/08 18:40:11 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = cc
 
 LIBFT = ./libft/libft.a
 PRINTF = ./printf/printf.a
-MINILIBX = ./minilibx/libmlx_Linux.a
+MINILIBX = ./minilibx-Linux/libmlx_Linux.a
 
 SRCS = 	./src/0_main.c				\
 		./src/1_check_arg.c			\
@@ -48,7 +48,7 @@ $(PRINTF):
 	cd ./printf && make all
 
 $(MINILIBX):
-	cd ./minilibx && ./configure
+	cd ./minilibx-Linux && make
 
 clean:
 	rm -f $(LIBFT_OBJS) $(NAME)
