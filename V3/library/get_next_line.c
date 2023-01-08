@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:18:56 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/08 22:54:12 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/09 00:07:34 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_read_get_save(int fd, char *save)
 
 	read_result = (char *)malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
 	if (read_result == NULL)
-		return (ft_free(save));
+		return (ft_free_for_str(save));
 	read_size = 1;
 	while (read_size != 0 && ft_strchr(save, '\n') == NULL)
 	{
@@ -27,7 +27,7 @@ char	*ft_read_get_save(int fd, char *save)
 		if (read_size == -1)
 		{
 			free(read_result);
-			return (ft_free(save));
+			return (ft_free_for_str(save));
 		}
 		read_result[read_size] = '\0';
 		save = ft_strjoin(save, read_result);
@@ -50,7 +50,7 @@ char	*ft_get_outputline(char *save)
 		i++;
 	output_line = (char *)malloc(sizeof(char) * (i + 2));
 	if (output_line == NULL)
-		return (ft_free(save));
+		return (ft_free_for_str(save));
 	i = 0;
 	while (save[i] != '\0' && save[i] != '\n')
 	{
@@ -77,11 +77,11 @@ char	*ft_get_next_save(char *save)
 	while (save[i] != '\0' && save[i] != '\n')
 		i++;
 	if (save[i] == '\0')
-		return (ft_free(save));
+		return (ft_free_for_str(save));
 	save_len = ft_strlen(save);
 	next_save = (char *)malloc(sizeof(char) * (save_len - i + 1));
 	if (next_save == NULL)
-		return (ft_free(save));
+		return (ft_free_for_str(save));
 	i++;
 	j = 0;
 	while (save[i] != '\0')

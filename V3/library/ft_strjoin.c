@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 19:43:59 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/08 22:53:12 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/09 00:07:14 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	p = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (p == NULL)
-		return (ft_free(s1));
+		return (ft_free_for_str(s1));
 	i = 0;
 	j = 0;
 	while (s1[i] != '\0')
