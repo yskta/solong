@@ -6,17 +6,17 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:54 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/06 18:50:08 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/08 19:53:27 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/libft.h"
-# include "../gnl/get_next_line.h"
-# include "../printf/ft_printf.h"
-# include "../minilibx-linux/mlx.h"
+# include "../lib/libft.h"
+# include "./gnl/get_next_line.h"
+# include "./printf/ft_printf.h"
+# include "./minilibx-linux/mlx.h"
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/stat.h>

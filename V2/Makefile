@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 23:08:42 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/08 19:45:10 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/08 19:49:04 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 			7_key_action.c		\
 			8_end_game.c		\
 			9_free.c		\
-			10_put_error_and_exit.c		\
+			10_put_error_and_exit.c)		\
 
 all:			${LIBFT} ${PRINTF} ${NAME}
 
