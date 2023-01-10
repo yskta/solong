@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/08 23:13:46 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/11 00:51:50 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@
 # define IMG_HEIGHT			32
 # define IMG_WIDTH			32
 
-# define COLLECTIBLE_IMG    "images/collectible.xpm"
-# define WALL_IMG		    "images/wall.xpm"
-# define SPACE_IMG		    "images/space.xpm"	
-# define PLAYER_IMG         "images/player.xpm"
-# define EXIT_IMG           "images/exit.xpm"
+# define COLLECTIBLE_IMG    "assets/images/collectible.xpm"
+# define WALL_IMG		    "assets/images/wall.xpm"
+# define SPACE_IMG		    "assets/images/space.xpm"	
+# define PLAYER_IMG         "assets/images/player.xpm"
+# define EXIT_IMG           "assets/images/exit.xpm"
 
 # define COLLECTIBLE	'C'
 # define SPACE			'0' 

@@ -6,25 +6,18 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/10 22:54:46 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/11 00:55:57 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= so_long
 
-GREEN			= \033[0;32m
-RED			= \033[0;31m
-RESET			= \033[0m
-
 LIBFT 			= ./library/libft.a
 
 CC 			= clang
 
-STANDARD_FLAGS 		= -Wall -Werror -Wextra
+CFLAGS 		= -Wall -Werror -Wextra
 MINILIBX_FLAGS		= -lmlx -lXext -lX11
-
-VALGRIND		= @valgrind --leak-check=full --show-leak-kinds=all \
---track-origins=yes --quiet --tool=memcheck --keep-debuginfo=yes
 
 REMOVE 			= rm -f
 
@@ -44,23 +37,24 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 			9_free.c			\
 			10_put_error_and_exit.c)
 
+OBJS			= ()
+
 all:			${LIBFT} ${NAME}
 
 ${NAME}: 		
-			${CC} ${SRCS} ${LIBFT} ${STANDARD_FLAGS} ${MINILIBX_FLAGS} -o ${NAME}
+			${CC} ${SRCS} ${LIBFT} ${CFLAGS} ${MINILIBX_FLAGS} -o ${NAME}
 
 ${LIBFT}:
-			make bonus -C libraries/Libft
+			make all -C library
 
 clean:
-			make clean -C libraries/Libft
+			make clean -C library
+			${REMOVE} 
 
-fclean:
-			${REMOVE} ${NAME} ${NAME_BONUS}
+fclean:		clean
+			${REMOVE} ${NAME}
 
 re:			fclean all
 
-run:			${NAME}
-			${VALGRIND} ./${NAME} assets/maps/valid/map4.ber
-
-.PHONY:			all clean fclean re valgrind run 
+run:		${NAME}
+			${VALGRIND} ./${NAME} assets/maps/map.ber
