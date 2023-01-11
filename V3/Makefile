@@ -6,13 +6,14 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/11 15:29:18 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/11 15:35:12 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= so_long
 
 LIBFT 			= ./library/libft.a
+MINILIBX		= ./minilibx-linux/libmlx_Linux.a
 
 CC 			= cc
 
@@ -37,12 +38,10 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 			9_free.c			\
 			10_put_error_and_exit.c)
 
-OBJS			= ()
-
 all:			${LIBFT} ${NAME}
 
-${NAME}: 		
-			${CC} ${SRCS} ${LIBFT} ${CFLAGS} ${MINILIBX_FLAGS} -o ${NAME}
+${NAME}: 	
+			${CC} ${CFLAGS} ${SRCS} ${MINILIBX} ${LIBFT} ${MINILIBX_FLAGS} -o ${NAME}
 
 ${LIBFT}:
 			make all -C library
