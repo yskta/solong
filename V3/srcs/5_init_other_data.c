@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:26 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/08 23:25:57 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/11 23:52:29 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void init_image(t_data *data)
 {
     data->collectible = xpm_file_to_image(data->mlx, COLLECTIBLE_IMG, data);
     data->wall = xpm_file_to_image(data->mlx, WALL_IMG, data);
-    data->space = xpm_file_to_image(data->mlx, COLLECTIBLE_IMG, data);
+    data->space = xpm_file_to_image(data->mlx, SPACE_IMG, data);
     data->player = xpm_file_to_image(data->mlx, PLAYER_IMG, data);
     data->exit = xpm_file_to_image(data->mlx, EXIT_IMG, data);
 }
