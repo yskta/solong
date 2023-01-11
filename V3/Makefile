@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/11 15:28:43 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/11 15:29:18 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME			= so_long
 
 LIBFT 			= ./library/libft.a
 
-CC 			= clang
+CC 			= cc
 
 CFLAGS 		= -Wall -Werror -Wextra
 MINILIBX_FLAGS		= -lmlx -lXext -lX11
