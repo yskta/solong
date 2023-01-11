@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/11 21:34:21 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/11 21:48:25 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # define EXIT_IMG           "images/exit.xpm"
 
 # define COLLECTIBLE	'C'
-# define SPACE			'0' 
+# define SPACE			'0'
 # define WALL			'1'
 # define PLAYER			'P'
 # define EXIT			'E'
