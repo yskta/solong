@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/11 15:41:25 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/11 20:12:08 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define FALSE   0
 # define TRUE    1
 
-# define IMG_HEIGHT			32
-# define IMG_WIDTH			32
+# define IMG_HEIGHT			4
+# define IMG_WIDTH			4
 
 # define COLLECTIBLE_IMG    "images/collectible.xpm"
 # define WALL_IMG		    "images/wall.xpm"
@@ -71,7 +71,7 @@ typedef struct s_map{
 }t_map;
 
 typedef struct s_image{
-    void        *xpm_ptr;
+    void        *img_ptr;
 	int         x;
 	int         y;
 }t_image;

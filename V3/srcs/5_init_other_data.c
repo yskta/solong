@@ -44,8 +44,8 @@ t_image xpm_file_to_image(void *mlx, char *path, t_data *data)
 {
     t_image image;
     
-    image.xpm_ptr = mlx_xpm_file_to_image(mlx, path, &image.x, &image.y);
-    if (image.xpm_ptr == NULL)
+    image.img_ptr = mlx_xpm_file_to_image(mlx, path, &image.x, &image.y);
+    if (image.img_ptr == NULL)
         put_error_and_exit("XPM_TO_IMAGE ERROR", data);
     return(image);
 }
