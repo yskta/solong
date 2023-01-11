@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:40 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/08 23:26:56 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/11 21:34:24 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void free_all(t_data *data)
 
 void destroy_images(t_data *data)
 {
-    mlx_destroy_image(data->mlx, data->collectible.xpm_ptr);
-    mlx_destroy_image(data->mlx, data->wall.xpm_ptr);
-    mlx_destroy_image(data->mlx, data->space.xpm_ptr);
-    mlx_destroy_image(data->mlx, data->player.xpm_ptr);
-    mlx_destroy_image(data->mlx, data->exit.xpm_ptr);
+    mlx_destroy_image(data->mlx, data->collectible.img_ptr);
+    mlx_destroy_image(data->mlx, data->wall.img_ptr);
+    mlx_destroy_image(data->mlx, data->space.img_ptr);
+    mlx_destroy_image(data->mlx, data->player.img_ptr);
+    mlx_destroy_image(data->mlx, data->exit.img_ptr);
 }
 
 void free_map(t_data *data)

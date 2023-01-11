@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:10 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/11 19:21:26 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/11 21:30:52 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void read_map(char *argv, t_data *data)
         data->map.height++;
     }
     close(data->map.fd);
-    check_empty_line(map, data);
+    //check_empty_line(map, data);
     data->map.map = ft_split(map, '\n');
     data->map_flag = TRUE;
     free(map);
 }
-
+/*
 void check_empty_line(char *map, t_data *data)
 {
     size_t  i;
@@ -58,3 +58,4 @@ void check_empty_line(char *map, t_data *data)
         i++;
     }
 }
+*/
