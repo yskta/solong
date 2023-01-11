@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:45:56 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/08 23:02:20 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:39:04 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_showhex_forull(unsigned long long pointer)
 	{
 		i--;
 		p_mod = p_dev % 16;
-		if (0 <= p_mod && p_mod <= 9)
+		if (p_mod <= 9)
 			num[i] = p_mod + '0';
 		else
 			num[i] = p_mod - 10 + 'a';

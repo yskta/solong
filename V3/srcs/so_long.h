@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/11 15:25:28 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:41:25 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../library/libft.h"
 
-# include "./minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/stat.h>

@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:18 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/08 23:25:19 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:34:30 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void check_line(t_data *data)
     while (y < data->map.height)
     {
         if (ft_strlen(data->map.map[y]) != width)
-            put_error_and_exit("INVARID MAP", data);
+            put_error_and_exit("INVARID MAP3", data);
         if (data->map.map[y][0] != WALL || data->map.map[y][width - 1] != WALL)
-            put_error_and_exit("INVARID MAP", data);
+            put_error_and_exit("INVARID MAP4", data);
         y++;
     }
     data->map.width = width;
@@ -48,7 +48,7 @@ void check_column(t_data *data)
     while (x < data->map.width)
     {
         if (data->map.map[0][x] != WALL || data->map.map[data->map.height - 1][x] != WALL)
-            put_error_and_exit("INVARID MAP", data);
+            put_error_and_exit("INVARID MAP5", data);
         x++;
     }
 }
@@ -75,7 +75,7 @@ void check_inside(t_data *data)
             else if (data->map.map[y][x] == EXIT)
                 data->map.n_exit++;
             else if (ft_strchr("C01PE", data->map.map[y][x]) == NULL)
-                put_error_and_exit("INVALID MAP", data);
+                put_error_and_exit("INVALID MAP6", data);
             x++;
         }
         y++;
@@ -85,9 +85,9 @@ void check_inside(t_data *data)
 void check_parm(t_data *data)
 {
     if (data->map.n_collectibel == 0)
-        put_error_and_exit("INVALID MAP", data);
+        put_error_and_exit("INVALID MAP7", data);
     else if (data->map.n_exit != 1)
-        put_error_and_exit("INVALID MAP", data);
+        put_error_and_exit("INVALID MAP8", data);
     else if (data->map.n_player != 1)
-        put_error_and_exit("INVALID MAP", data);
+        put_error_and_exit("INVALID MAP9", data);
 }

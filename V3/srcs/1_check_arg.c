@@ -6,10 +6,11 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:06 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/08 23:24:12 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:42:22 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
 
 void check_arg(int argc, char **argv, t_data *data)
 {
