@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:26 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/12 02:08:54 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/12 11:21:26 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ t_image xpm_file_to_image(void *mlx, char *path, t_data *data)
     t_image image;
     
     image.img_ptr = mlx_xpm_file_to_image(mlx, path, &image.x, &image.y);
-    image.x = 32;
-    image.y = 32;
     if (image.img_ptr == NULL)
         put_error_and_exit("XPM_TO_IMAGE ERROR", data);
     return(image);

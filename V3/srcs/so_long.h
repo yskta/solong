@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/12 11:00:17 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/12 11:21:34 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define FALSE   0
 # define TRUE    1
 
-# define IMG_HEIGHT			32
-# define IMG_WIDTH			32
+# define IMG_HEIGHT			50
+# define IMG_WIDTH			50
 
 /*
 # define COLLECTIBLE_IMG    "images/1collectible1.xpm"
