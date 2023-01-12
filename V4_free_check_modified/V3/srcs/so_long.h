@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/12 11:31:03 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/12 23:39:32 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <X11/X.h>
-# include <X11/keysym.h>
+# include <X11/keysymdef.h>
 
 # define FALSE   0
 # define TRUE    1
