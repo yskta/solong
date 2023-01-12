@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/12 01:55:43 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/12 11:00:17 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,19 @@
 # define EXIT_IMG           "images/1exit1.xpm"
 */
 
+# define COLLECTIBLE_IMG    "images/2collectible.xpm"
+# define WALL_IMG		    "images/2wall.xpm"
+# define SPACE_IMG		    "images/2space.xpm"	
+# define PLAYER_IMG         "images/2player.xpm"
+# define EXIT_IMG           "images/2exit.xpm"
+
+/*
 # define COLLECTIBLE_IMG    "images/collectible.xpm"
 # define WALL_IMG		    "images/wall.xpm"
 # define SPACE_IMG		    "images/space.xpm"	
 # define PLAYER_IMG         "images/player.xpm"
 # define EXIT_IMG           "images/exit.xpm"
+*/
 
 # define COLLECTIBLE	'C'
 # define SPACE			'0'
