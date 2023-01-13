@@ -3,6 +3,6 @@
 ・引数判定→done
 ・異常mapへの対応詰める
 ・leaks対応
-・minilibxのmakeも自動で対応
+・minilibxのmakeも自動で対応→done
 ・MacOSでも対応
 ・step数、確認&出力
