@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/14 00:35:23 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/14 01:12:16 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,45 @@ void check_position(t_data *data)
     }
 }
 
-/*
+
 void check_playable(t_data *data)
 {
-    t_data *check_data;
+    t_map *copy_map;
     
-    check_data = malloc(sizeof(t_data));
-    check_data->map.height = data->map.height;
-    check_data->map.width = data->map.width;
-    check_data->map.n_collectibel = data->map.n_collectibel;
-    check_data->map.map = copy_map(data);
+    copy_map = malloc(sizeof(t_map));
+    copy_map_data(data, copy_map);
+    copy_map->map = copy_map_contents(data);
+    change_map_contents(copy_map, copy_map->player.x, copy_map->player.y);
     
-    free(check_data);
+    size_t  i;
+    i = 0;
+    while (i < copy_map->height)
+    {
+        ft_printf("%s\n", copy_map->map[i]);
+        i++;
+    }
+    free_copy_map(copy_map->map);
+    free(copy_map);
 }
 
-void copy_map(t_data *data)
+void copy_map_data(t_data *data,t_map *copy_map)
 {
-    char    **copy_map;
+    copy_map->height = data->map.height;
+    copy_map->width = data->map.width;
+    copy_map->n_collectibel = data->map.n_collectibel;
+    copy_map->n_exit = data->map.n_exit;
+    copy_map->player.x = data->map.player.x;
+    copy_map->player.y = data->map.player.y;
+}
+
+void copy_map_contens(t_data *data)
+{
+    char    **copied_map;
     size_t  y;
     size_t  i;
 
-    copy_map = (char **)malloc(sizeof(char *) * data->map.height);
-    if (copy_map == NULL)
+    copied_map = (char **)malloc(sizeof(char *) * data->map.height);
+    if (copied_map == NULL)
     {
         free(check_data);
         put_error_and_exit("MALLOC ERROR AT COPY MAP", data);
@@ -77,6 +94,44 @@ void copy_map(t_data *data)
         }
         y++;
     }
-    return(copy_map);
+    return(copied_map);
 }
-*/
+
+void change_map_contents(t_map *copy_map, size_t x, size_t y)
+{
+    if (copy_map->map[y-1][x] == PLAYER)
+        copy_map->map[y][x] = 'X';
+    if (copy_map->map[y-1][x] != WALL)
+    {
+        copy_map->map[y-1][x] = 'X';
+        change_map_contents(copy_map, x, y-1);
+    }
+    else if (copy_map->map[y+1][x] != WALL)
+    {
+        copy_map->map[y+1][x] = 'X';
+        change_map_contents(copy_map, x, y+1);
+    }
+    else if (copy_map->map[y][x-1] != WALL)
+    {
+        copy_map->map[y][x-1] = 'X';
+        change_map_contents(copy_map, x-1, y);
+    }
+    else if (copy_map->map[y][x+1] != WALL)
+    {
+        copy_map->map[y][x+1] = 'X';
+        change_map_contents(copy_map, x+1, y);
+    }
+}
+
+void free_copy_map(t_map *copy_map)
+{
+    size_t i;
+
+    i = 0;
+    while (i < copy_map->height)
+    {
+        free(copy_map->map[i]);
+        i++;
+    }
+    free(copy_map->map);
+}
