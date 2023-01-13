@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/11 16:34:39 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:22:57 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void check_position(t_data *data)
         {
             if (data->map.map[y][x] == COLLECTIBLE || data->map.map[y][x] == EXIT || data->map.map[y][x] == PLAYER)
             {
-                if (data->map.map[y-1][x-1] == WALL && data->map.map[y-1][x] == WALL && data->map.map[y-1][x+1] == WALL && data->map.map[y][x-1] == WALL && data->map.map[y][x+1] == WALL && data->map.map[y+1][x-1] == WALL && data->map.map[y+1][x] == WALL && data->map.map[y+1][x+1] == WALL)
+                if (data->map.map[y-1][x] == WALL && data->map.map[y][x-1] == WALL && data->map.map[y][x+1] == WALL && data->map.map[y+1][x] == WALL)
                     put_error_and_exit("INVALID MAP10", data);
             }
             x++;

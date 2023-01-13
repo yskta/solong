@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:18 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/12 00:50:58 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:19:18 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void parse_map(t_data *data)
     //check_partition(data);
 }
 
+//OK
 void check_line(t_data *data)
 {
     size_t y;
@@ -40,6 +41,7 @@ void check_line(t_data *data)
     data->map.width = width;
 }
 
+//OK
 void check_column(t_data *data)
 {
     size_t x;
@@ -53,6 +55,7 @@ void check_column(t_data *data)
     }
 }
 
+//OK
 void check_inside(t_data *data)
 {
     size_t x;
@@ -82,6 +85,7 @@ void check_inside(t_data *data)
     }
 }
 
+//OK
 void check_parm(t_data *data)
 {
     if (data->map.n_collectibel == 0)

@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:34 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/12 23:44:51 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/13 11:45:32 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void updata_and_render_map(t_data *data, size_t update_x, size_t update_y)
 
     current_x = data->map.player.x;
     current_y = data->map.player.y;
+    ft_printf("%d\n", (int)data->map.steps);
     if (data->map.map[update_y][update_x] == EXIT && data->map.n_collectibel == 0)
         win_game(data);
     else if (data->map.map[update_y][update_x] == SPACE || data->map.map[update_y][update_x] == COLLECTIBLE)

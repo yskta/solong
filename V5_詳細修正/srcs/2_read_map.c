@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:10 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/11 21:30:52 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:33:11 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,19 @@ void read_map(char *argv, t_data *data)
     data->map_flag = TRUE;
     free(map);
 }
-/*
+
+//1：OK
 void check_empty_line(char *map, t_data *data)
 {
-    size_t  i;
+    //size_t  i;
 
-    i = 0;
+    //i = 0;
     if (map[0] == '\n')
     {
         free(map);
         put_error_and_exit("INVARID MAP1", data);
     }
+    /*
     while(map[i+1] != '\0')
     {
         if (map[i] == '\n' && map[i+1] != '\n')
@@ -57,5 +59,6 @@ void check_empty_line(char *map, t_data *data)
         }
         i++;
     }
+    */
 }
 */
