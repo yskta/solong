@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/13 17:11:38 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:20:05 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ typedef struct s_data{
 	t_image		exit;
 }t_data;
 
-void    check_arg(const int argc, const char *argv[], t_data *data)
-void    check_extention(const char *argv)
+void    check_arg(int argc, char *argv[], t_data *data);
+void    check_extention(char *argv);
 
 void    read_map(char *argv, t_data *data);
 void    check_empty_line(char *map, t_data *data);

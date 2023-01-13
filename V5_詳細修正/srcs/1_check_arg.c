@@ -6,23 +6,22 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:06 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/13 17:11:16 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:19:12 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void check_arg(const int argc, const char *argv[], t_data *data)
+void check_arg(int argc, char *argv[], t_data *data)
 {
-    (void)argv;
     if (argc != 2)
         put_error_and_exit("ARG ERROR1", data);
     check_extenxiton(argv[1]);
 }
 
-void check_extention(const char *argv)
+void check_extention(char *argv)
 {
-    const char *extention = ".ber";
+    char *extention = ".ber";
     char  *str;
     size_t argv_len;
     size_t ext_len = 4;
