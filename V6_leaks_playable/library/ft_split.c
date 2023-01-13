@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 19:46:05 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/19 20:37:09 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/14 00:20:31 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ char	**ft_split_str(const char *s, char c, \
 	index = 0;
 	while (s[i] != '\0' && index < split_cnt)
 	{
+		if (s[i] == c)
+			i++;
 		if (s[i] != c)
 		{
 			j = i + 1;
@@ -56,10 +58,8 @@ char	**ft_split_str(const char *s, char c, \
 			if (split_str[index] == NULL)
 				return (ft_free(split_str));
 			index++;
-			i = j + 1;
+			i = j;
 		}
-		if (s[i] == c)
-			i++;
 	}
 	split_str[split_cnt] = NULL;
 	return (split_str);

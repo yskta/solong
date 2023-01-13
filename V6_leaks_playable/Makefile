@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/13 17:53:40 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/13 23:32:59 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ ${MINILIBX}:
 			make all -C minilibx-linux
 
 clean:
-			make clean -C library
+			make fclean -C library
 			${REMOVE} 
 
 fclean:		clean
