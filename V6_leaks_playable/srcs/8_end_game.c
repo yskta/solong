@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:37 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/08 23:26:44 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/13 22:57:00 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int win_game(t_data *data)
 {
-    ft_printf("steps: %d\n", data->map.steps);
+    ft_printf("total steps: %d\n", data->map.steps);
     free_all(data);
     ft_printf("WIN\n");
     exit(1);
