@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:06 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/13 17:38:44 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:57:30 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void check_arg(int argc, char *argv[], t_data *data)
 void check_extention(char *argv, t_data *data)
 {
     char *extention = ".ber";
-    char  *str;
     size_t argv_len;
     size_t ext_len = 4;
 
