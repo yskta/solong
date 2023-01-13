@@ -1,6 +1,6 @@
 修正点
-・WASDに対応
-・引数判定
+・WASDに対応→done
+・引数判定→done
 ・異常mapへの対応詰める
 ・leaks対応
 ・minilibxのmakeも自動で対応

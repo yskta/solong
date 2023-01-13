@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/13 17:24:38 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:49:07 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,10 @@
 #define KEY_DOWN        0xff54
 #define KEY_ESC         0xff1b
 
-# define KEY_W      0x0057
-# define KEY_A      0x0041
-# define KEY_S      0x0053
-# define KEY_D      0x0044
-# define KEY_Q      0x0051
+# define KEY_A 97
+# define KEY_D 100
+# define KEY_S 115
+# define KEY_W 119
 
 typedef struct s_pos{
     size_t  x;

@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/11 15:44:47 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/13 17:53:40 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ MINILIBX		= ./minilibx-linux/libmlx_Linux.a
 CC 			= cc
 
 CFLAGS 		= -Wall -Werror -Wextra
-MINILIBX_FLAGS		= -lXext -lX11
+MINILIBX_FLAGS		= -Lmlx_linux -lXext -lX11 -lm
 
 REMOVE 			= rm -f
 
@@ -38,13 +38,16 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 			9_free.c			\
 			10_put_error_and_exit.c)
 
-all:			${LIBFT} ${NAME}
+all:			${LIBFT} ${MINILIBX} ${NAME}
 
 ${NAME}: 	
 			${CC} ${CFLAGS} ${SRCS} ${MINILIBX} ${LIBFT} ${MINILIBX_FLAGS} -o ${NAME}
 
 ${LIBFT}:
 			make all -C library
+
+${MINILIBX}:
+			make all -C minilibx-linux
 
 clean:
 			make clean -C library

@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:34 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/13 11:45:32 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:47:30 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int key_action(int key, t_data *data)
         updata_and_render_map(data, data->map.player.x + 1, data->map.player.y);
     else if (key == KEY_LEFT || key == KEY_A)
         updata_and_render_map(data, data->map.player.x - 1, data->map.player.y);
-    else if (key == KEY_ESC || key == KEY_Q)
+    else if (key == KEY_ESC)
         close_game(data);
     return (0);
 }
