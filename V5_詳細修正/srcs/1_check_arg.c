@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:06 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/13 17:19:12 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:38:44 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void check_arg(int argc, char *argv[], t_data *data)
 {
     if (argc != 2)
         put_error_and_exit("ARG ERROR1", data);
-    check_extenxiton(argv[1]);
+    check_extention(argv[1], data);
 }
 
-void check_extention(char *argv)
+void check_extention(char *argv, t_data *data)
 {
     char *extention = ".ber";
     char  *str;
@@ -36,7 +36,4 @@ void check_extention(char *argv)
         if (argv[argv_len] != extention[ext_len])
             put_error_and_exit("ARG ERROR3", data);
     }
-    str = ft_strtrim(argv, extention);
-    if(ft_strchr(argv, '.') != NULL)
-        put_error_and_exit("ARG ERROR4", data);
 }
