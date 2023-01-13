@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/14 01:13:26 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/14 02:38:17 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,12 @@ void    check_column(t_data *data);
 void    check_inside(t_data *data);
 void    check_parm(t_data *data);
 void    check_position(t_data *data);
-void    check_playable(t_data *data);
 void    copy_map_data(t_data *data,t_map *copy_map);
-void    copy_map_contens(t_data *data);
-void    change_map_contents(t_map *copy_map, size_t x, size_t y);
-void    free_copy_map(t_map *copy_map);
+int     change_map_contents_revursive(t_map *copy_map, size_t y, size_t x);
+void    change_map_contents(t_map *copy_map);
+int     change_map_contents(t_map *copy_map);
+void    free_copied_map(t_map *copy_map);
+void    check_playable(t_data *data);
 
 void    init_other_data(t_data *data);
 void    init_mlx(t_data *data);

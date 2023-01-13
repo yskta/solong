@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/14 01:12:16 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/14 02:37:06 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,7 @@ void check_position(t_data *data)
     }
 }
 
-
-void check_playable(t_data *data)
-{
-    t_map *copy_map;
-    
-    copy_map = malloc(sizeof(t_map));
-    copy_map_data(data, copy_map);
-    copy_map->map = copy_map_contents(data);
-    change_map_contents(copy_map, copy_map->player.x, copy_map->player.y);
-    
-    size_t  i;
-    i = 0;
-    while (i < copy_map->height)
-    {
-        ft_printf("%s\n", copy_map->map[i]);
-        i++;
-    }
-    free_copy_map(copy_map->map);
-    free(copy_map);
-}
-
-void copy_map_data(t_data *data,t_map *copy_map)
+void copy_map_data(t_data *data, t_map *copy_map)
 {
     copy_map->height = data->map.height;
     copy_map->width = data->map.width;
@@ -65,7 +44,7 @@ void copy_map_data(t_data *data,t_map *copy_map)
     copy_map->player.y = data->map.player.y;
 }
 
-void copy_map_contens(t_data *data)
+char  **copy_map_contents(t_data *data, t_map *copy_map)
 {
     char    **copied_map;
     size_t  y;
@@ -74,19 +53,19 @@ void copy_map_contens(t_data *data)
     copied_map = (char **)malloc(sizeof(char *) * data->map.height);
     if (copied_map == NULL)
     {
-        free(check_data);
+        free(copy_map);
         put_error_and_exit("MALLOC ERROR AT COPY MAP", data);
     }
     y = 0;
     while (y < data->map.height)
     {
-        copy_map[y] = ft_strdup(data->map.map[y]);
-        if (copy_map[y] == NULL)
+        copied_map[y] = ft_strdup(data->map.map[y]);
+        if (copied_map[y] == NULL)
         {
             i = 0;
-            while(copy_map[i] != NULL)
+            while(copied_map[i] != NULL)
             {
-                free(copy_map[i]);
+                free(copied_map[i]);
                 i++;
             }
             free(copy_map);
@@ -97,30 +76,42 @@ void copy_map_contens(t_data *data)
     return(copied_map);
 }
 
-void change_map_contents(t_map *copy_map, size_t x, size_t y)
+int change_map_contents_revursive(t_map *copy_map, size_t y, size_t x)
 {
-    if (copy_map->map[y-1][x] == PLAYER)
+    if (copy_map->map[y][x] == WALL)
+        return(1);
+    else
         copy_map->map[y][x] = 'X';
+    if ((copy_map->map[y-1][x] == WALL) && (copy_map->map[y+1][x] == WALL) && (copy_map->map[y][x-1] == WALL) && (copy_map->map[y][x+1] == WALL))
+        return(1);
     if (copy_map->map[y-1][x] != WALL)
     {
         copy_map->map[y-1][x] = 'X';
-        change_map_contents(copy_map, x, y-1);
+        change_map_contents_revursive(copy_map, y-1, x);
     }
     else if (copy_map->map[y+1][x] != WALL)
     {
         copy_map->map[y+1][x] = 'X';
-        change_map_contents(copy_map, x, y+1);
+        change_map_contents_revursive(copy_map, y+1, x);
     }
     else if (copy_map->map[y][x-1] != WALL)
     {
         copy_map->map[y][x-1] = 'X';
-        change_map_contents(copy_map, x-1, y);
+        change_map_contents_revursive(copy_map, y, x-1);
     }
     else if (copy_map->map[y][x+1] != WALL)
     {
         copy_map->map[y][x+1] = 'X';
-        change_map_contents(copy_map, x+1, y);
+        change_map_contents_revursive(copy_map, y, x+1);
     }
+}
+
+void change_map_contents(t_map *copy_map)
+{
+    change_map_contents_revursive(t_map *copy_map, copy_map->map.player.y + 1, copy_map->map.player.x);
+    change_map_contents_revursive(t_map *copy_map, copy_map->map.player.y - 1, copy_map->map.player.x);
+    change_map_contents_revursive(t_map *copy_map, copy_map->map.player.y, copy_map->map.player.x + 1);
+    change_map_contents_revursive(t_map *copy_map, copy_map->map.player.y, copy_map->map.player.x - 1);
 }
 
 void free_copy_map(t_map *copy_map)
@@ -134,4 +125,23 @@ void free_copy_map(t_map *copy_map)
         i++;
     }
     free(copy_map->map);
+}
+
+void check_playable(t_data *data)
+{
+    t_map *copy_map;
+    
+    copy_map = malloc(sizeof(t_map));
+    copy_map_data(data, copy_map);
+    copy_map->map = copy_map_contents(data, copy_map);
+    change_map_contents(copy_map);
+    size_t  i;
+    i = 0;
+    while (i < copy_map->height)
+    {
+        ft_printf("%s\n", copy_map->map[i]);
+        i++;
+    }
+    free_copied_map(copy_map);
+    free(copy_map);
 }
