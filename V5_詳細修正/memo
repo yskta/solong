@@ -1,0 +1,8 @@
+修正点
+・WASDに対応
+・引数判定
+・異常mapへの対応詰める
+・leaks対応
+・minilibxのmakeも自動で対応
+・MacOSでも対応
+・step数、確認&出力

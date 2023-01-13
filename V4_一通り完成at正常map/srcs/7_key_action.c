@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:34 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/12 00:54:05 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/12 23:44:51 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int key_action(int key, t_data *data)
     else if (key == KEY_DOWN || key == KEY_S)
         updata_and_render_map(data, data->map.player.x, data->map.player.y + 1);
     else if (key == KEY_RIGHT || key == KEY_D)
-        updata_and_render_map(data, data->map.player.x, data->map.player.y - 1);
+        updata_and_render_map(data, data->map.player.x + 1, data->map.player.y);
     else if (key == KEY_LEFT || key == KEY_A)
         updata_and_render_map(data, data->map.player.x - 1, data->map.player.y);
     else if (key == KEY_ESC || key == KEY_Q)
