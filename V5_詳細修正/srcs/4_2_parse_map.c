@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/13 12:22:57 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:38:03 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,3 @@ void check_position(t_data *data)
         y++;
     }
 }
-
-/*
-void check_partition(t_data *data)
-{
-    check_line_parti(data);
-    check_column(data);
-}
-*/
