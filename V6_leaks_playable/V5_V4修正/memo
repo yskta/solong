@@ -1,0 +1,8 @@
+修正点
+・WASDに対応→done
+・引数判定→done
+・異常mapへの対応詰める→playable以外対応done
+・leaks対応
+・minilibxのmakeも自動で対応→done
+・MacOSでも対応
+・step数、確認&出力
