@@ -11,5 +11,5 @@
 修正点②
 ・playableの判定実装
 ・MacOSXへの対応
-・ft_split、ft_strjoinの修正
-・全てストケースでvalgrind使ってfree﻿の確認
+・ft_split、ft_strjoinの修正→対応done
+・全てストケースでvalgrind使ってfreeの確認→playable以外全部確認
