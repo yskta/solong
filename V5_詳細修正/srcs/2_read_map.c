@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:10 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/13 12:33:11 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:37:53 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,3 @@ void check_empty_line(char *map, t_data *data)
     }
     */
 }
-*/
