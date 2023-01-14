@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/14 02:37:06 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/14 11:13:19 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,45 +76,46 @@ char  **copy_map_contents(t_data *data, t_map *copy_map)
     return(copied_map);
 }
 
-int change_map_contents_revursive(t_map *copy_map, size_t y, size_t x)
+void change_map_contents_recursive(t_map *copy_map, size_t y, size_t x)
 {
     if (copy_map->map[y][x] == WALL)
-        return(1);
+        return ;
     else
         copy_map->map[y][x] = 'X';
-    if ((copy_map->map[y-1][x] == WALL) && (copy_map->map[y+1][x] == WALL) && (copy_map->map[y][x-1] == WALL) && (copy_map->map[y][x+1] == WALL))
-        return(1);
+    if ((copy_map->map[y-1][x] == WALL || copy_map->map[y-1][x] == 'X') && (copy_map->map[y+1][x] == WALL || || copy_map->map[y+1][x] == 'X') && (copy_map->map[y][x-1] == WALL || copy_map->map[y][x-1] == 'X') && (copy_map->map[y][x+1] == WALL || || copy_map->map[y][x+1] == 'X'))
+        return ;
     if (copy_map->map[y-1][x] != WALL)
     {
         copy_map->map[y-1][x] = 'X';
-        change_map_contents_revursive(copy_map, y-1, x);
+        change_map_contents_recursive(copy_map, y-1, x);
     }
     else if (copy_map->map[y+1][x] != WALL)
     {
         copy_map->map[y+1][x] = 'X';
-        change_map_contents_revursive(copy_map, y+1, x);
+        change_map_contents_recursive(copy_map, y+1, x);
     }
     else if (copy_map->map[y][x-1] != WALL)
     {
         copy_map->map[y][x-1] = 'X';
-        change_map_contents_revursive(copy_map, y, x-1);
+        change_map_contents_recursive(copy_map, y, x-1);
     }
     else if (copy_map->map[y][x+1] != WALL)
     {
         copy_map->map[y][x+1] = 'X';
-        change_map_contents_revursive(copy_map, y, x+1);
+        change_map_contents_recursive(copy_map, y, x+1);
     }
 }
 
 void change_map_contents(t_map *copy_map)
 {
-    change_map_contents_revursive(t_map *copy_map, copy_map->map.player.y + 1, copy_map->map.player.x);
-    change_map_contents_revursive(t_map *copy_map, copy_map->map.player.y - 1, copy_map->map.player.x);
-    change_map_contents_revursive(t_map *copy_map, copy_map->map.player.y, copy_map->map.player.x + 1);
-    change_map_contents_revursive(t_map *copy_map, copy_map->map.player.y, copy_map->map.player.x - 1);
+    copy_map->map[copy_map->player.y][copy_map->player.x] = 'X';
+    change_map_contents_recursive(copy_map, copy_map->player.y + 1, copy_map->player.x);
+    change_map_contents_recursive(copy_map, copy_map->player.y - 1, copy_map->player.x);
+    change_map_contents_recursive(copy_map, copy_map->player.y, copy_map->player.x + 1);
+    change_map_contents_recursive(copy_map, copy_map->player.y, copy_map->player.x - 1);
 }
 
-void free_copy_map(t_map *copy_map)
+void free_copied_map(t_map *copy_map)
 {
     size_t i;
 
