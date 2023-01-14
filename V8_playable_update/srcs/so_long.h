@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/14 18:03:18 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/14 23:49:42 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void    change_above(t_map *copy_map, int y, int x);
 void    change_down(t_map *copy_map, int y, int x);
 void    change_left(t_map *copy_map, int y, int x);
 void    change_right(t_map *copy_map, int y, int x);
-void    change_above_down_left_right(t_map *copy_map, int y, int x);
+void    change_corner(t_map *copy_map, int y, int x);
 void    change_recursive(t_map *copy_map, int y, int x);
 void    change_map_contents(t_map *copy_map);
 void    free_copied_map(t_map *copy_map);
