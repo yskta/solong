@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/14 16:45:18 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:04:18 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char  **copy_map_contents(t_data *data, t_map *copy_map)
 
 void change_above(t_map *copy_map, size_t y, size_t x)
 {
-    if (copy_map->map[y-1][x] == WALL)
+    if (copy_map->map[y-1][x] == WALL || copy_map->map[y-1][x] == 'X')
         return;
     else
         copy_map->map[y-1][x] = 'X';
@@ -86,7 +86,7 @@ void change_above(t_map *copy_map, size_t y, size_t x)
 
 void change_down(t_map *copy_map, size_t y, size_t x)
 {
-    if (copy_map->map[y+1][x] == WALL)
+    if (copy_map->map[y+1][x] == WALL || copy_map->map[y+1][x] == 'X')
         return;
     else
         copy_map->map[y+1][x] = 'X';
@@ -94,7 +94,7 @@ void change_down(t_map *copy_map, size_t y, size_t x)
 
 void change_left(t_map *copy_map, size_t y, size_t x)
 {
-    if (copy_map->map[y][x-1] == WALL)
+    if (copy_map->map[y][x-1] == WALL || copy_map->map[y][x-1] == 'X')
         return;
     else
         copy_map->map[y][x-1] = 'X';
@@ -102,19 +102,28 @@ void change_left(t_map *copy_map, size_t y, size_t x)
 
 void change_right(t_map *copy_map, size_t y, size_t x)
 {
-    if (copy_map->map[y][x+1] == WALL)
+    if (copy_map->map[y][x+1] == WALL || copy_map->map[y][x+1] == 'X')
         return;
     else
         copy_map->map[y][x+1] = 'X';
 }
 
+void change_above_down_left_right(t_map *copy_map, size_t y, size_t x)
+{
+    change_above(copy_map, copy_map->player.y, copy_map->player.x);
+    change_down(copy_map, copy_map->player.y, copy_map->player.x);
+    change_left(copy_map, copy_map->player.y, copy_map->player.x);
+    change_right(copy_map, copy_map->player.y, copy_map->player.x);
+}
+
 void change_map_contents(t_map *copy_map)
 {
     copy_map->map[copy_map->player.y][copy_map->player.x] = 'X';
-    change_up(copy_map, copy_map->player.y, copy_map->player.x);
-    change_down(copy_map, copy_map->player.y, copy_map->player.x);
-    change_leftt(copy_map, copy_map->player.y, copy_map->player.x);
-    change_right(copy_map, copy_map->player.y, copy_map->player.x);
+    change_above_down_left_right(copy_map, copy_map->player.y, copy_map->player.x);
+    change_above_down_left_right(copy_map, copy_map->player.y-1, copy_map->player.x);
+    change_above_down_left_right(copy_map, copy_map->player.y+1, copy_map->player.x);
+    change_above_down_left_right(copy_map, copy_map->player.y, copy_map->player.x-1);
+    change_above_down_left_right(copy_map, copy_map->player.y, copy_map->player.x+1);
 }
 
 void free_copied_map(t_map *copy_map)
