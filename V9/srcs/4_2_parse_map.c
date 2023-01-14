@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 03:14:30 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 03:20:57 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,17 +95,17 @@ bool check_copy_map(t_map *copy_map, size_t y, size_t x)
         return(true);
     if (copy_map->map[y][x] == SPACE || copy_map->map[y][x] == COLLECTIBLE)
     {
-        copy_map->map[y][x] == WALL;
-        if (x > 0 && check_map(map, x - 1, y)) {
+        copy_map->map[y][x] = WALL;
+        if (x > 0 && check_copy_map(copy_map, x - 1, y)) {
             return true;
         }
-        if ((x < copy_map->width - 1) && check_map(map, x + 1, y)) {
+        if ((x < copy_map->width - 1) && check_copy_map(copy_map, x + 1, y)) {
             return true;
         }
-        if (y > 0 && check_map(map, x, y - 1)) {
+        if (y > 0 && check_copy_map(copy_map, x, y - 1)) {
             return true;
         }
-        if ((y < copy_map->height - 1) && check_map(map, x, y + 1)) {
+        if ((y < copy_map->height - 1) && check_copy_map(copy_map, x, y + 1)) {
             return true;
         }
     }
