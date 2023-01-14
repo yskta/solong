@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 03:05:48 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 03:17:18 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,15 +105,9 @@ void    check_inside(t_data *data);
 void    check_parm(t_data *data);
 void    check_position(t_data *data);
 void    copy_map_data(t_data *data,t_map *copy_map);
-void    change_above(t_map *copy_map, int y, int x);
-void    change_down(t_map *copy_map, int y, int x);
-void    change_left(t_map *copy_map, int y, int x);
-void    change_right(t_map *copy_map, int y, int x);
-void    change_recursive(t_map *copy_map, int y, int x);
-void    change_map_contents(t_map *copy_map);
 void    free_copied_map(t_map *copy_map);
+bool    check_copy_map(t_map *copy_map, size_t y, size_t x);
 void    check_playable(t_data *data);
-
 void    init_other_data(t_data *data);
 void    init_mlx(t_data *data);
 void    init_image(t_data *data);
