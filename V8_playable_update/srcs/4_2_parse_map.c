@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 00:07:24 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 00:14:35 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,23 +108,14 @@ void change_right(t_map *copy_map, int y, int x)
         copy_map->map[y][x+1] = 'X';
 }
 
-void change_corner(t_map *copy_map, int y, int x)
-{
-    if ((y == 1 && x == 1) && (copy_map->map[y][x] != WALL))
-        copy_map->map[y][x] = 'X';
-    else if ((y == 1 && (x == (int)copy_map->width - 2)) && (copy_map->map[y][x] != WALL))
-        copy_map->map[y][x] = 'X';
-    else if (((y == (int)copy_map->height - 2) && x == 1) && (copy_map->map[y][x] != WALL))
-        copy_map->map[y][x] = 'X';
-    else if (((y == (int)copy_map->height - 2) && (x == (int)copy_map->width - 2)) && (copy_map->map[y][x] != WALL))
-        copy_map->map[y][x] = 'X';
-}
-
 void change_recursive(t_map *copy_map, int y, int x)
 {
-    change_corner(copy_map, y, x);
     if ((y == 1 && x == 1) || (y == 1 && (x == (int)copy_map->width - 2)) || ((y == (int)copy_map->height - 2) && x == 1) || ((y == (int)copy_map->height - 2) && (x == (int)copy_map->width - 2)))
+    {
+        if (copy_map->map[y][x] != WALL)
+            copy_map->map[y][x] = 'X';
         return ;
+    }
     change_above(copy_map, y, x);
     change_down(copy_map, y, x);
     change_left(copy_map, y, x);
@@ -148,7 +139,7 @@ void change_recursive(t_map *copy_map, int y, int x)
     if (((2 <= y) && (y <= (int)copy_map->height-3) && (2 <= x-1)))
         change_recursive(copy_map, y, x-1);
     //右
-    if (((2 <= y) && (y <= (int)copy_map->height-3) && (x+1 <= (int)copy_map->width-3))))
+    if (((2 <= y) && (y <= (int)copy_map->height-3) && (x+1 <= (int)copy_map->width-3)))
         change_recursive(copy_map, y, x+1);
     //下
     if (((y+1 <= (int)copy_map->height-3) && (2 <= x) && (x <= (int)copy_map->width-3)))
