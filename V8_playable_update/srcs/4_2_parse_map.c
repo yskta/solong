@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/14 23:59:27 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 00:03:44 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void change_corner(t_map *copy_map, int y, int x)
 void change_recursive(t_map *copy_map, int y, int x)
 {
     change_corner(copy_map, y, x);
-    if ((y == 1 && x == 1) || (y == 1 && (x == copy_map->width - 2)) || ((y == copy_map->height - 2) && x == 1) || ((y == copy_map->height - 2) && (x == copy_map->width - 2)))
+    if ((y == 1 && x == 1) || (y == 1 && (x == (int)copy_map->width - 2)) || ((y == (int)copy_map->height - 2) && x == 1) || ((y == (int)copy_map->height - 2) && (x == (int)copy_map->width - 2)))
         return ;
     change_above(copy_map, y, x);
     change_down(copy_map, y, x);
@@ -133,13 +133,13 @@ void change_recursive(t_map *copy_map, int y, int x)
     if ((y-1 == 1) && (x-1 == 1))
         change_recursive(copy_map, 1, 1);
     //右上
-    else if ((y-1 == 1) && (x+1 == copy_map->width - 2))
+    else if ((y-1 == 1) && (x+1 == (int)copy_map->width - 2))
         change_recursive(copy_map, 1, copy_map->width - 2);
     //左下
-    else if ((y+1 == copy_map->height - 2) && (x-1 == 1))
+    else if ((y+1 == (int)copy_map->height - 2) && (x-1 == 1))
         change_recursive(copy_map, copy_map->height - 2, 1);
     //右下
-    else if ((y+1 == copy_map->height - 2) && (x+1 == copy_map->width - 2))
+    else if ((y+1 == (int)copy_map->height - 2) && (x+1 == (int)copy_map->width - 2))
         change_recursive(copy_map, copy_map->height - 2, copy_map->width - 2);
     //上
     if ((2 <= y-1) && (2 <= x) && (x <= (int)copy_map->width-3))
