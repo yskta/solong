@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/14 18:03:03 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/14 20:10:02 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,27 +122,35 @@ void change_recursive(t_map *copy_map, int y, int x)
         change_above_down_left_right(copy_map, y-1, x-1);
     if (y - 1 > 0)
         change_above_down_left_right(copy_map, y-1, x);
-    if ((y - 1 > 0) && (x + 1 < copy_map->width - 1))
+    if ((y - 1 > 0) && (x + 1 < (int)copy_map->width - 1))
         change_above_down_left_right(copy_map, y-1, x+1);
     if (x - 1 > 0)
         change_above_down_left_right(copy_map, y, x-1);
-    if (x + 1 < copy_map->width - 1)
+    if (x + 1 < (int)copy_map->width - 1)
         change_above_down_left_right(copy_map, y, x+1);
-    if ((y + 1 < copy_map->height - 1) && (x - 1 > 0))
+    if ((y + 1 < (int)copy_map->height - 1) && (x - 1 > 0))
         change_above_down_left_right(copy_map, y+1, x-1);
-    if ((y + 1 < copy_map->height - 1)
+    if (y + 1 < (int)copy_map->height - 1)
         change_above_down_left_right(copy_map, y+1, x);
-    if ((y + 1 < copy_map->height - 1) && (x + 1 < copy_map->width - 1))
+    if ((y + 1 < (int)copy_map->height - 1) && (x + 1 < (int)copy_map->width - 1))
         change_above_down_left_right(copy_map, y+1, x+1);
-    /*
-    if (y - 1 > 1)
+    
+    if ((y - 1 == 2) && (x - 1 == 2))
+        change_recursive(copy_map, y-1, x-1);
+    else if ((y + 1 == (int)copy_map->height - 3) && (x - 1 == 2))
+        change_recursive(copy_map, y+1, x-1);
+    else if ((y - 1 == 2) && (x + 1 == (int)copy_map->width - 3))
+        change_recursive(copy_map, y-1, x+1);
+    else if ((y + 1 == (int)copy_map->height - 3) && (x + 1 == (int)copy_map->width - 3))
+        change_recursive(copy_map, y+1, x+1);
+    if ((y - 1 > 2) && (2 < x) && (x < (int)copy_map->width - 3))
         change_recursive(copy_map, y-1, x);
-    //down
-    else if (y + 1 <)
-    //left
-
-    //right
-    */
+    if ((y + 1 < (int)copy_map->height - 3) && (2 < x) && (x < (int)copy_map->width - 3))
+        change_recursive(copy_map, y+1, x);
+    if ((x - 1 > 2) && (2 < y) && (y < (int)copy_map->height - 3))
+        change_recursive(copy_map, y, x-1);
+    if ((x + 1 > (int)copy_map->width - 3) && (2 < y) && (y < (int)copy_map->height - 3))
+        change_recursive(copy_map, y, x+1);
 }
 
 void change_map_contents(t_map *copy_map)
