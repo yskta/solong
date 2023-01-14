@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 00:03:44 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 00:07:24 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,11 +112,11 @@ void change_corner(t_map *copy_map, int y, int x)
 {
     if ((y == 1 && x == 1) && (copy_map->map[y][x] != WALL))
         copy_map->map[y][x] = 'X';
-    else if ((y == 1 && x == copy_map->width - 2) && (copy_map->map[y][x] != WALL))
+    else if ((y == 1 && (x == (int)copy_map->width - 2)) && (copy_map->map[y][x] != WALL))
         copy_map->map[y][x] = 'X';
-    else if ((y == copy_map->height - 2 && x == 1) && (copy_map->map[y][x] != WALL))
+    else if (((y == (int)copy_map->height - 2) && x == 1) && (copy_map->map[y][x] != WALL))
         copy_map->map[y][x] = 'X';
-    else if ((y == copy_map->height - 2 && copy_map->width - 2) && (copy_map->map[y][x] != WALL))
+    else if (((y == (int)copy_map->height - 2) && (x == (int)copy_map->width - 2)) && (copy_map->map[y][x] != WALL))
         copy_map->map[y][x] = 'X';
 }
 
