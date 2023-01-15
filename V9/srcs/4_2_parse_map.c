@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 10:32:44 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 10:40:08 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,7 @@ char  **copy_map_contents(t_data *data, t_map *copy_map)
 void change_above(t_map *copy_map, int y, int x)
 {
     if (copy_map->map[y-1][x] == COLLECTIBLE)
-    {
-        if (copy_map->n_collectibel >= 1)
             copy_map->n_collectibel--;
-    }
     if (copy_map->map[y-1][x] == WALL || copy_map->map[y-1][x] == EXIT || copy_map->map[y-1][x] == 'X')
         return;
     else
@@ -92,10 +89,7 @@ void change_above(t_map *copy_map, int y, int x)
 void change_down(t_map *copy_map, int y, int x)
 {
     if (copy_map->map[y+1][x] == COLLECTIBLE)
-    {
-        if (copy_map->n_collectibel >= 1)
             copy_map->n_collectibel--;
-    }
     if (copy_map->map[y+1][x] == WALL || copy_map->map[y+1][x] == EXIT || copy_map->map[y+1][x] == 'X')
         return;
     else
@@ -105,10 +99,7 @@ void change_down(t_map *copy_map, int y, int x)
 void change_left(t_map *copy_map, int y, int x)
 {
     if (copy_map->map[y][x-1] == COLLECTIBLE)
-    {
-        if (copy_map->n_collectibel >= 1)
             copy_map->n_collectibel--;
-    }
     if (copy_map->map[y][x-1] == WALL || copy_map->map[y][x-1] == EXIT || copy_map->map[y][x-1] == 'X')
         return;
     else
@@ -118,10 +109,7 @@ void change_left(t_map *copy_map, int y, int x)
 void change_right(t_map *copy_map, int y, int x)
 {
     if (copy_map->map[y][x+1] == COLLECTIBLE)
-    {
-        if (copy_map->n_collectibel >= 1)
             copy_map->n_collectibel--;
-    }
     if (copy_map->map[y][x+1] == WALL || copy_map->map[y][x+1] == EXIT || copy_map->map[y][x+1] == 'X')
         return;
     else
@@ -131,7 +119,7 @@ void change_right(t_map *copy_map, int y, int x)
 void change_recursive(t_map *copy_map, int y, int x)
 {
     //終了条件
-    if (copy_map->n_collectibel == 0 && copy_map->map[y][x] == EXIT)
+    if (copy_map->n_collectibel == 0)
         return ;
     //コーナーの時はその処理
     if ((y == 1 && x == 1) || (y == 1 && (x == (int)copy_map->width - 2)) || ((y == (int)copy_map->height - 2) && x == 1) || ((y == (int)copy_map->height - 2) && (x == (int)copy_map->width - 2)))
@@ -140,11 +128,6 @@ void change_recursive(t_map *copy_map, int y, int x)
             copy_map->map[y][x] = 'X';
         return ;
     }
-    change_above(copy_map, y, x);
-    change_down(copy_map, y, x);
-    change_left(copy_map, y, x);
-    change_right(copy_map, y, x);
-    
     //左上のコーナーの時の再帰
     if ((y-1 == 1) && (x-1 == 1))
         change_recursive(copy_map, 1, 1);
@@ -158,6 +141,11 @@ void change_recursive(t_map *copy_map, int y, int x)
     else if ((y+1 == (int)copy_map->height - 2) && (x+1 == (int)copy_map->width - 2))
         change_recursive(copy_map, copy_map->height - 2, copy_map->width - 2);
     
+    change_above(copy_map, y, x);
+    change_down(copy_map, y, x);
+    change_left(copy_map, y, x);
+    change_right(copy_map, y, x);
+
     //上
     if ((2 <= y-1) && (2 <= x) && (x <= (int)copy_map->width-3))
         change_recursive(copy_map, y-1, x);
