@@ -1,0 +1,15 @@
+修正点①
+・WASDに対応→done
+・引数判定→done
+・異常mapへの対応詰める→playable以外対応done
+・leaks対応
+・minilibxのmakeも自動で対応→done
+・MacOSでも対応
+・step数、確認&出力→対応
+
+=====
+修正点②
+・playableの判定実装
+・MacOSXへの対応
+・ft_split、ft_strjoinの修正→対応done
+・全てストケースでvalgrind使ってfreeの確認→playable以外全部確認
