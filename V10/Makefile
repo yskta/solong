@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/15 12:10:06 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/15 15:45:00 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 all:			${LIBFT} ${MINILIBX} ${NAME}
 
 ${NAME}: 	
-			${CC} ${CFLAGS} ${SRCS} ${MINILIBX} ${LIBFT} -fsanitize=address -g ${MINILIBX_FLAGS} -o ${NAME}
+			${CC} ${CFLAGS} ${SRCS} ${MINILIBX} ${LIBFT} ${MINILIBX_FLAGS} -o ${NAME}
 
 ${LIBFT}:
 			make all -C library
@@ -50,7 +50,7 @@ ${MINILIBX}:
 			make all -C minilibx-linux
 
 clean:
-			make fclean -C library
+			make clean -C library
 			${REMOVE} 
 
 fclean:		clean
