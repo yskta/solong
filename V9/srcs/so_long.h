@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 10:13:25 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 10:32:55 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@
 # define WALL			'1'
 # define PLAYER			'P'
 # define EXIT			'E'
-# define CLOSE_EXIT     '2'
-# define OPEN_EXIT      '3'
 
 #define KEY_LEFT        0xff51 
 #define KEY_UP          0xff52  
