@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/16 01:20:28 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/16 01:50:41 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,3 @@ fclean:		clean
 			${REMOVE} ${NAME}
 
 re:			fclean all
-
-run:		${NAME}
-			${VALGRIND} ./${NAME} map/map.ber
