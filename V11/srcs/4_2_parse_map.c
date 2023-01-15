@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 16:24:44 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 16:36:56 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,23 +62,12 @@ void change_recursive(t_map *copy_map, int y, int x)
     
     if (copy_map->map[y][x] == WALL || copy_map->map[y][x] == 'G')
         return;
-    else if (copy_map->n_collectibel != 0 && copy_map->map[y][x] == EXIT)
-    {
-        if ((1 <= y-1) && (1 <= x) && (x <= (int)copy_map->width-2) && (copy_map->map[y-1][x] != 'G'))
-            change_recursive(copy_map, y-1, x);
-        if ((1 <= y) && (y <= (int)copy_map->height-2) && (1 <= x-1) && (copy_map->map[y][x-1] != 'G'))
-            change_recursive(copy_map, y, x-1);
-        if ((1 <= y) && (y <= (int)copy_map->height-2) && (x+1 <= (int)copy_map->width-2) && (copy_map->map[y][x+1] != 'G'))
-            change_recursive(copy_map, y, x+1);
-        if ((y+1 <= (int)copy_map->height-2) && (1 <= x) && (x <= (int)copy_map->width-2) && (copy_map->map[y+1][x] != 'G'))
-            change_recursive(copy_map, y+1, x);
-    }
     else if (copy_map->n_collectibel == 0 && copy_map->map[y][x] == EXIT)
     {
         copy_map->map[y][x] = 'G';
         return ;
     }
-    else 
+    else
         copy_map->map[y][x] = 'G';
     
     //上のマスで再帰
