@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/13 23:32:59 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/15 11:50:12 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ MINILIBX		= ./minilibx-linux/libmlx_Linux.a
 
 CC 			= cc
 
-CFLAGS 		= -Wall -Werror -Wextra
+CFLAGS 		= -Wall -Werror -Wextra -fsanitize=address -g
 MINILIBX_FLAGS		= -Lmlx_linux -lXext -lX11 -lm
 
 REMOVE 			= rm -f
