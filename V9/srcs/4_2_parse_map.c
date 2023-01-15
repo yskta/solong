@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 10:18:15 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 10:26:09 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ char  **copy_map_contents(t_data *data, t_map *copy_map)
 
 void change_above(t_map *copy_map, int y, int x)
 {
+    if (copy_map[y-1][x] == EXIT)
+        copy_map[y-1][x] == CLOSE_EXIT;
     if (copy_map->map[y-1][x] == COLLECTIBLE)
     {
         if (copy_map->n_collectibel >= 1)
@@ -91,6 +93,8 @@ void change_above(t_map *copy_map, int y, int x)
 
 void change_down(t_map *copy_map, int y, int x)
 {
+    if (copy_map[y+1][x] == EXIT)
+        copy_map[y+1][x] == CLOSE_EXIT;
     if (copy_map->map[y+1][x] == COLLECTIBLE)
     {
         if (copy_map->n_collectibel >= 1)
@@ -104,6 +108,8 @@ void change_down(t_map *copy_map, int y, int x)
 
 void change_left(t_map *copy_map, int y, int x)
 {
+    if (copy_map[y][x-1] == EXIT)
+        copy_map[y][x-1] == CLOSE_EXIT;
     if (copy_map->map[y][x-1] == COLLECTIBLE)
     {
         if (copy_map->n_collectibel >= 1)
@@ -117,6 +123,8 @@ void change_left(t_map *copy_map, int y, int x)
 
 void change_right(t_map *copy_map, int y, int x)
 {
+    if (copy_map[y][x+1] == EXIT)
+        copy_map[y][x+1] == CLOSE_EXIT;
     if (copy_map->map[y][x+1] == COLLECTIBLE)
     {
         if (copy_map->n_collectibel >= 1)
@@ -132,9 +140,11 @@ void change_recursive(t_map *copy_map, int y, int x)
 {
     //終了条件
     if (copy_map->n_collectibel == 0 && copy_map->map[y][x] == CLOSE_EXIT)
+    {
         copy_map->map[y][x] == OPEN_EXIT;
-    if (copy_map->map[y][x] == OPEN_EXIT)
-        return ;
+        if (copy_map->map[y][x] == OPEN_EXIT)
+            return ;
+    }
     //コーナーの時はその処理
     if ((y == 1 && x == 1) || (y == 1 && (x == (int)copy_map->width - 2)) || ((y == (int)copy_map->height - 2) && x == 1) || ((y == (int)copy_map->height - 2) && (x == (int)copy_map->width - 2)))
     {
