@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/16 01:18:42 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/16 01:20:28 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ CC 			= cc
 
 CFLAGS 		= -Wall -Werror -Wextra
 MINILIBX_FLAGS		= -Lmlx_linux -lXext -lX11 -lm
+MINILIBX_FLAGS_MAC = -lmlx -framework OpenGL -framework AppKit
 
 REMOVE 			= rm -f
 
@@ -31,7 +32,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 			3_init_map.c	\
 			4_1_parse_map.c	\
 			4_2_parse_map.c		\
-			4_3_parse_map.c		\
+			4_3_parse_map.c	\
 			5_init_other_data.c		\
 			6_render_map.c		\
 			7_key_action.c		\
@@ -58,3 +59,6 @@ fclean:		clean
 			${REMOVE} ${NAME}
 
 re:			fclean all
+
+run:		${NAME}
+			${VALGRIND} ./${NAME} map/map.ber
