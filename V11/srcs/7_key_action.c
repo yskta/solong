@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:34 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 16:57:01 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 16:59:24 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void updata_and_render_map(t_data *data, size_t update_x, size_t update_y)
     }
     else if (data->map.map[update_y][update_x] == EXIT && data->map.n_collectibel != 0)
     {
-        ft_printf("exit_x:%d\n", (int)update_x);
-        ft_printf("exit_y:%d\n", (int)update_y);
         data->map.steps++;
         ft_printf("%d\n", (int)data->map.steps);
         data->map.map[current_y][current_x] = SPACE;
