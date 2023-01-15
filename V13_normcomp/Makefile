@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/15 15:45:00 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/15 23:24:28 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 			3_init_map.c	\
 			4_1_parse_map.c	\
 			4_2_parse_map.c		\
+			4_3_parse_map.c		\
 			5_init_other_data.c		\
 			6_render_map.c		\
 			7_key_action.c		\
@@ -57,6 +58,3 @@ fclean:		clean
 			${REMOVE} ${NAME}
 
 re:			fclean all
-
-run:		${NAME}
-			${VALGRIND} ./${NAME} map/map.ber
