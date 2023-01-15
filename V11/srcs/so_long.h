@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 15:37:35 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 16:55:36 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef struct s_map{
     size_t     n_collectibel;
     size_t     steps;
     t_pos      player;
+    t_pos      exit;
 }t_map;
 
 typedef struct s_image{

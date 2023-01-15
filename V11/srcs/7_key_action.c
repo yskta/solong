@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:34 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/13 22:54:41 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 16:57:01 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,24 @@ void updata_and_render_map(t_data *data, size_t update_x, size_t update_y)
         ft_printf("%d\n", (int)data->map.steps);
         win_game(data);
     }
+    else if (data->map.map[update_y][update_x] == EXIT && data->map.n_collectibel != 0)
+    {
+        ft_printf("exit_x:%d\n", (int)update_x);
+        ft_printf("exit_y:%d\n", (int)update_y);
+        data->map.steps++;
+        ft_printf("%d\n", (int)data->map.steps);
+        data->map.map[current_y][current_x] = SPACE;
+        data->map.player.x = update_x;
+        data->map.player.y = update_y;
+        data->map.map[update_y][update_x] = PLAYER;
+        render_map(data);
+    }
     else if (data->map.map[update_y][update_x] == SPACE || data->map.map[update_y][update_x] == COLLECTIBLE)
     {
-        data->map.map[current_y][current_x] = SPACE;
+        if(current_y == data->map.exit.y && current_x == data->map.exit.x)
+            data->map.map[current_y][current_x] = EXIT;
+        else
+            data->map.map[current_y][current_x] = SPACE;
         if (data->map.map[update_y][update_x] == COLLECTIBLE)
             data->map.n_collectibel -= 1;
         data->map.player.x = update_x;

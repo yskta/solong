@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:18 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 15:29:29 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 16:55:40 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,11 @@ void check_inside(t_data *data)
             else if (data->map.map[y][x] == COLLECTIBLE)
                 data->map.n_collectibel++;
             else if (data->map.map[y][x] == EXIT)
+            {
                 data->map.n_exit++;
+                data->map.exit.x = x;
+                data->map.exit.y = y;
+            }
             else if (ft_strchr("C01PE", data->map.map[y][x]) == NULL)
                 put_error_and_exit("INVALID MAP6", data);
             x++;
