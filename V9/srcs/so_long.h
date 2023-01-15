@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 10:32:55 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 11:38:02 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ void    change_down(t_map *copy_map, int y, int x);
 void    change_left(t_map *copy_map, int y, int x);
 void    change_right(t_map *copy_map, int y, int x);
 void    change_recursive(t_map *copy_map, int y, int x);
-void    change_map_contents(t_map *copy_map);
 void    free_copied_map(t_map *copy_map);
 void    check_playable(t_data *data);
 

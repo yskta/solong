@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 11:11:08 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 11:45:35 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,16 +130,14 @@ void change_right(t_map *copy_map, int y, int x)
 
 void change_recursive(t_map *copy_map, int y, int x)
 {
-    //終了条件
-    if (copy_map->n_collectibel == 0)
-        return ;
     //各コーナーの時の処理
     if ((y == 1 && x == 1) || (y == 1 && (x == (int)copy_map->width - 2)) || ((y == (int)copy_map->height - 2) && x == 1) || ((y == (int)copy_map->height - 2) && (x == (int)copy_map->width - 2)))
     {
-        if (copy_map->map[y][x+1] == COLLECTIBLE)
+        if (copy_map->map[y][x] == COLLECTIBLE)
             copy_map->n_collectibel--;
-        if (copy_map->map[y][x] != WALL)
+        if (copy_map->map[y][x] != WALL && copy_map->map[y][x] != 'X')
             copy_map->map[y][x] = 'X';
+        //コーナーの時は終わらせる
         return ;
     }
     //左上のコーナーの時の再帰
@@ -181,11 +179,6 @@ void change_recursive(t_map *copy_map, int y, int x)
         change_recursive(copy_map, y+1, x);
 }
 
-void change_map_contents(t_map *copy_map)
-{
-    change_recursive(copy_map, copy_map->player.y, copy_map->player.x);
-}
-
 void free_copied_map(t_map *copy_map)
 {
     size_t i;
@@ -206,7 +199,7 @@ void check_playable(t_data *data)
     copy_map = malloc(sizeof(t_map));
     copy_map_data(data, copy_map);
     copy_map->map = copy_map_contents(data, copy_map);
-    change_map_contents(copy_map);
+    change_recursive(copy_map, copy_map->player.y, copy_map->player.x);
     size_t  i;
     i = 0;
     while (i < copy_map->height)
