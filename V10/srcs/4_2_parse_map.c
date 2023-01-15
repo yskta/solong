@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:22 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 14:52:44 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:55:12 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ char  **copy_map_contents(t_data *data, t_map *copy_map)
     return(copied_map);
 }
 
+/*
 void change_above(t_map *copy_map, int y, int x)
 {
     if (copy_map->map[y-1][x] == COLLECTIBLE)
@@ -88,6 +89,7 @@ void change_above(t_map *copy_map, int y, int x)
     else
         copy_map->map[y-1][x] = 'X';
 }
+*/
 
 void change_recursive(t_map *copy_map, int y, int x)
 {
@@ -101,6 +103,7 @@ void change_recursive(t_map *copy_map, int y, int x)
         return ;
     }
     
+    //普通処理
     if (copy_map->map[y][x] == COLLECTIBLE)
         copy_map->n_collectibel--;
 
