@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 14:55:25 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:37:35 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include "../minilibx-linux/mlx.h"
 # include <stdlib.h>
+# include <stdbool.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
@@ -102,10 +103,10 @@ void    check_line(t_data *data);
 void    check_column(t_data *data);
 void    check_inside(t_data *data);
 void    check_parm(t_data *data);
-void    check_position(t_data *data);
 void    copy_map_data(t_data *data,t_map *copy_map);
 void    change_recursive(t_map *copy_map, int y, int x);
 void    free_copied_map(t_map *copy_map);
+bool    check_valid_copy_map(t_map *copy_map);
 void    check_playable(t_data *data);
 
 void    init_other_data(t_data *data);

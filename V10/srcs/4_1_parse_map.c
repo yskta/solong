@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:18 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/14 00:41:20 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:29:29 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void parse_map(t_data *data)
     check_column(data);
     check_inside(data);
     check_parm(data);
-    check_position(data);
     check_playable(data);
 }
 
