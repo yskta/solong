@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:30 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 18:55:26 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/17 19:33:36 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	render_map(t_data *data)
 		}
 		y++;
 	}
+	ft_print_steps(data);
 	return (0);
 }
 
@@ -53,4 +54,16 @@ void	id_and_put_image(t_data *data, size_t y, size_t x)
 		mlx_put_image_to_window (data->mlx, \
 				data->mlx_win, data->player.img_ptr, \
 				x * data->player.x, y * data->player.y);
+}
+
+void	ft_print_steps(t_data *data)
+{
+	char	*total_steps;
+	char	*str;
+
+	total_steps = ft_itoa(data->map.steps);
+	str = ft_strjoin("total steps : ", total_steps);
+	mlx_string_put(data->mlx, data->mlx_win, 20, 20, 0x0000FF00, str);
+	free(total_steps);
+	free(str);
 }

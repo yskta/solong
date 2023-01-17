@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/17 18:15:25 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/17 19:23:17 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_map{
 	size_t		n_exit;
 	size_t		n_player;
 	size_t		n_collectibel;
-	size_t		steps;
+	int			steps;
 	t_pos		player;
 	t_pos		exit;
 }t_map;
@@ -123,6 +123,7 @@ t_image	xpm_file_to_image(void *mlx, char *path, t_data *data);
 
 int		render_map(t_data *data);
 void	id_and_put_image(t_data *data, size_t x, size_t y);
+void	ft_print_steps(t_data *data);
 
 int		key_action(int key, t_data *data);
 void	process_1(t_data *data);
