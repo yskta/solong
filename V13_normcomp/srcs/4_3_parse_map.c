@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 19:35:29 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/17 18:11:31 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/17 18:17:03 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	change_recursive_process(t_map *copy_map, size_t y, size_t x)
 			(1 <= x - 1) && (copy_map->map[y][x - 1] != 'G'))
 		change_recursive (copy_map, y, x - 1);
 	if ((1 <= y) && (y <= copy_map->height - 2) && \
-			(x + 1 <= (int)copy_map->width - 2) \
+			(x + 1 <= copy_map->width - 2) \
 			&& (copy_map->map[y][x + 1] != 'G'))
 		change_recursive (copy_map, y, x + 1);
 	if ((y + 1 <= copy_map->height - 2) && (1 <= x) && \
