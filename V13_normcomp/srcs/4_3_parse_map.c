@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 19:35:29 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/17 17:57:59 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/17 18:11:31 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	change_recursive(t_map *copy_map, size_t y, size_t x)
 		copy_map->map[y][x] = 'G';
 	change_recursive_process(copy_map, y, x);
 	if ((y == 1 && x == 1) || (y == 1 && (x == copy_map->width - 2)) || \
-			((y == (int)copy_map->height - 2) && x == 1) || \
-			((y == (int)copy_map->height - 2) \
-			&& (x == (int)copy_map->width - 2)))
+			((y == copy_map->height - 2) && x == 1) || \
+			((y == copy_map->height - 2) \
+			&& (x == copy_map->width - 2)))
 	{
 		if (copy_map->map[y][x] == COLLECTIBLE)
 			copy_map->n_collectibel--;
