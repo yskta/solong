@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/18 11:51:57 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/18 14:01:36 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,24 +14,21 @@ NAME			= so_long
 
 LIBFT 			= ./library/libft.a
 LIBFT_DIR		= ./library
-LIBFT_INCLUDE	= $(addprefix -I, $(LIBFT_DIR)/libft.h)
 
 
 MINILIBX		= ./minilibx-linux/libmlx_Linux.a
 MINILIBX_DIR	= ./minilibx-linux
-MINILIBX_INCLUDE = $(addprefix -I, $(MINILIBX_DIR))
-
-INCLUDE			= $(addprefix -I, $(SRCS_DIR)/so_long.h)
 
 CC 			= cc
 
 CFLAGS 		= -Wall -Werror -Wextra
+INCLUDE_FLAGS = -I./srcs -I./library -I./minilibx-linux
 MINILIBX_FLAGS		= -Lmlx_linux -lXext -lX11 -lm
 
+AR				=	ar rcs
 REMOVE 			= rm -f
 
-SRCS_DIR		= ./srcs/
-OBJS_DIR		= ./objs/
+SRCS_DIR		= ./srcs
 
 SRCS 			= $(addprefix $(SRCS_DIR),\
 			0_main.c		\
@@ -48,21 +45,21 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 			9_free.c			\
 			10_put_error_and_exit.c)
 
-OBJS			= $(addprefix $(OBJS_DIR), $(SRCS:%.c=%.o))
+OBJS		= $(SRCS:%.c=%.o)
 
-all:			${LIBFT} ${MINILIBX} ${NAME}
+all:		$(LIBFT) $(MINILIBX) $(NAME)
 
-${NAME}: 	${OBJS}
-			$(CC) $(CFLAGS) -o $@ $(OBJS) ${MINILIBX} ${LIBFT} ${MINILIBX_FLAGS}
+$(NAME): 	$(OBJS)
+			$(AR) $(NAME) $(OBJS)
 
-${LIBFT}:
+$(LIBFT): 
 			make all -C library
 
-${MINILIBX}:
+$(MINILIBX):
 			make all -C minilibx-linux
 
-${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c
-			${CC} ${CFLAGS} -c ${INCLUDE} ${MINILIBX_INCLUDE} ${LIBFT_INCLUDE} $< -o $@
+%.o : %.c
+			$(CC) $(CFRAGS) -c $(INCLUDE_FLAGS) $< -o $@
 
 clean:
 			make clean -C library
