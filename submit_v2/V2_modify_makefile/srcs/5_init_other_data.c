@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:26 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 18:48:28 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/18 15:44:12 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	init_mlx(t_data *data)
 	if (data->mlx == NULL)
 		put_error_and_exit("MLX ERROR", data);
 	data->mlx_win = mlx_new_window(data->mlx, data->map.width * IMG_WIDTH, \
-			data->map.height * IMG_HEIGHT, "S_LONG");
+			data->map.height * IMG_HEIGHT, "SO_LONG");
 	if (data->mlx_win == NULL)
 	{
 		free(data->mlx_win);

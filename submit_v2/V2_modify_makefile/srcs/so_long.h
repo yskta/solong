@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:47 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/17 19:46:26 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/18 15:45:48 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_map{
 	size_t		n_exit;
 	size_t		n_player;
 	size_t		n_collectibel;
-	size_t		steps;
+	int			steps;
 	t_pos		player;
 	t_pos		exit;
 }t_map;

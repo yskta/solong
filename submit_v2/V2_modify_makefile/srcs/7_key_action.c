@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:34 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 22:57:01 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/18 15:45:07 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ int	key_action(int key, t_data *data)
 void	process_1(t_data *data)
 {
 	data->map.steps++;
-	ft_printf("%d\n", (int)data->map.steps);
+	ft_printf("%d\n", data->map.steps);
 	win_game(data);
 }
 
 void	process_2(t_data *data, size_t update_x, size_t update_y)
 {
 	data->map.steps++;
-	ft_printf("%d\n", (int)data->map.steps);
+	ft_printf("%d\n", data->map.steps);
 	data->map.player.x = update_x;
 	data->map.player.y = update_y;
 	data->map.map[update_y][update_x] = PLAYER;
@@ -49,7 +49,7 @@ void	process_3(t_data *data, size_t update_x, size_t update_y)
 	if (data->map.map[update_y][update_x] == COLLECTIBLE)
 			data->map.n_collectibel -= 1;
 	data->map.steps++;
-	ft_printf("%d\n", (int)data->map.steps);
+	ft_printf("%d\n", data->map.steps);
 	data->map.player.x = update_x;
 	data->map.player.y = update_y;
 	data->map.map[update_y][update_x] = PLAYER;
