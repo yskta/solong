@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/18 15:39:17 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/18 15:56:25 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,12 +56,12 @@ libft:
 	make -C $(LIBFT_DIR)
 
 clean:
-	$(RM) -r $(OBJS_DIR)
+	rm -r $(OBJS_DIR)
 	make clean -C $(LIBFT_DIR)
 
 fclean:
-	$(RM) -r $(OBJS_DIR)
-	$(RM) $(NAME)
+	rm -r $(OBJS_DIR)
+	rm $(NAME)
 	make clean -C $(MLX_DIR)
 	make fclean -C $(LIBFT_DIR)
 
