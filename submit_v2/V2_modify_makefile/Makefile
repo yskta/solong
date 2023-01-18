@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/18 15:31:13 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/18 15:39:17 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,7 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 			9_free.c			\
 			10_put_error_and_exit.c)
 
-OBJS_DIR = ./objs
-OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:%.c=%.o))
+OBJS = $(SRCS:%.c=%.o)
 
 MLX_DIR = ./minilibx-linux
 MLX_LIB = -lmlx_Linux -lXext -lX11
@@ -44,13 +43,10 @@ LIBFT_INCLUDE = $(addprefix -I, $(LIBFT_DIR))
 
 all: mlx libft $(NAME)
 
-$(NAME): $(OBJS_DIR) $(OBJS)
+$(NAME): $(OBJS)
 		$(CC) $(CFLAGS) -o $@ $(OBJS) -L$(MLX_DIR) $(MLX_LIB) -L$(LIBFT_DIR) $(LIBFT_LIB)
 
-$(OBJS_DIR):
-		mkdir -p $(OBJS_DIR)
-
-$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+%.o:	%.c
 		$(CC) $(CFLAGS) -c $(MLX_INCLUDE) $(LIBFT_INCLUDE) $< -o $@
 
 mlx:
