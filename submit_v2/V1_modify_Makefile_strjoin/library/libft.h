@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 19:38:52 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/18 10:19:47 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/18 10:30:02 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int				ft_atoi(const char *nptr);
 char			*ft_strdup(const char *src);
 void			*ft_calloc(size_t number, size_t size);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
-char			*ft_strjoin(char *s1, char *s2);
+char	        *ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
 char			*ft_itoa(int n);
