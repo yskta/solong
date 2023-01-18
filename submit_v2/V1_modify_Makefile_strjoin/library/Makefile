@@ -6,7 +6,7 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 19:38:29 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/09 00:10:45 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/18 10:23:58 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS		= ft_atoi.c ft_bzero.c ft_calloc.c \
 				ft_strncmp.c ft_strnstr.c ft_strrchr.c  \
 				ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
 				ft_printf_csdi.c ft_printf_hex.c ft_printf_pointer.c \
-				ft_printf_unsigned.c ft_printf.c ft_free_for_str.c \
+				ft_printf_unsigned.c ft_printf.c ft_free_for_gnl.c \
 				get_next_line.c
 
 CC			= cc
