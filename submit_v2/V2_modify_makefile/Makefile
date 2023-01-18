@@ -6,30 +6,16 @@
 #    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 22:44:52 by yokitaga          #+#    #+#              #
-#    Updated: 2023/01/18 14:01:36 by yokitaga         ###   ########.fr        #
+#    Updated: 2023/01/18 15:31:13 by yokitaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= so_long
+NAME = so_long
 
-LIBFT 			= ./library/libft.a
-LIBFT_DIR		= ./library
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-
-MINILIBX		= ./minilibx-linux/libmlx_Linux.a
-MINILIBX_DIR	= ./minilibx-linux
-
-CC 			= cc
-
-CFLAGS 		= -Wall -Werror -Wextra
-INCLUDE_FLAGS = -I./srcs -I./library -I./minilibx-linux
-MINILIBX_FLAGS		= -Lmlx_linux -lXext -lX11 -lm
-
-AR				=	ar rcs
-REMOVE 			= rm -f
-
-SRCS_DIR		= ./srcs
-
+SRCS_DIR		= ./srcs/
 SRCS 			= $(addprefix $(SRCS_DIR),\
 			0_main.c		\
 			1_check_arg.c		\
@@ -45,27 +31,42 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 			9_free.c			\
 			10_put_error_and_exit.c)
 
-OBJS		= $(SRCS:%.c=%.o)
+OBJS_DIR = ./objs
+OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:%.c=%.o))
 
-all:		$(LIBFT) $(MINILIBX) $(NAME)
+MLX_DIR = ./minilibx-linux
+MLX_LIB = -lmlx_Linux -lXext -lX11
+MLX_INCLUDE = $(addprefix -I, $(MLX_DIR))
 
-$(NAME): 	$(OBJS)
-			$(AR) $(NAME) $(OBJS)
+LIBFT_DIR = ./library
+LIBFT_LIB = -lft
+LIBFT_INCLUDE = $(addprefix -I, $(LIBFT_DIR))
 
-$(LIBFT): 
-			make all -C library
+all: mlx libft $(NAME)
 
-$(MINILIBX):
-			make all -C minilibx-linux
+$(NAME): $(OBJS_DIR) $(OBJS)
+		$(CC) $(CFLAGS) -o $@ $(OBJS) -L$(MLX_DIR) $(MLX_LIB) -L$(LIBFT_DIR) $(LIBFT_LIB)
 
-%.o : %.c
-			$(CC) $(CFRAGS) -c $(INCLUDE_FLAGS) $< -o $@
+$(OBJS_DIR):
+		mkdir -p $(OBJS_DIR)
+
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+		$(CC) $(CFLAGS) -c $(MLX_INCLUDE) $(LIBFT_INCLUDE) $< -o $@
+
+mlx:
+	make -C $(MLX_DIR)
+
+libft:
+	make -C $(LIBFT_DIR)
 
 clean:
-			make clean -C library
-			${REMOVE} 
+	$(RM) -r $(OBJS_DIR)
+	make clean -C $(LIBFT_DIR)
 
-fclean:		clean
-			${REMOVE} ${NAME}
+fclean:
+	$(RM) -r $(OBJS_DIR)
+	$(RM) $(NAME)
+	make clean -C $(MLX_DIR)
+	make fclean -C $(LIBFT_DIR)
 
-re:			fclean all
+re: fclean all
