@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 21:50:30 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/17 19:47:09 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/18 10:41:47 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	id_and_put_image(t_data *data, size_t y, size_t x)
 
 void	print_steps(t_data *data)
 {
-	char	*total_steps;
+	const char	*total_steps;
 	char	*str;
 
 	total_steps = ft_itoa(data->map.steps);
