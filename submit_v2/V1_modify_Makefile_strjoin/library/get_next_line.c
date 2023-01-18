@@ -6,11 +6,36 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:18:56 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 19:21:34 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/18 10:22:18 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+char	*ft_strjoin_for_gnl(char *s1, char *s2)
+{
+	char	*p;
+	size_t	i;
+	size_t	j;
+
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	p = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (p == NULL)
+		return (ft_free_for_gnl(s1));
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0')
+	{
+		p[i] = s1[i];
+		i++;
+	}
+	while (s2[j] != '\0')
+		p[i++] = s2[j++];
+	p[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	free(s1);
+	return (p);
+}
 
 char	*ft_read_get_save(int fd, char *save)
 {
@@ -19,7 +44,7 @@ char	*ft_read_get_save(int fd, char *save)
 
 	read_result = (char *)malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
 	if (read_result == NULL)
-		return (ft_free_for_str(save));
+		return (ft_free_for_gnl(save));
 	read_size = 1;
 	while (read_size != 0 && ft_strchr(save, '\n') == NULL)
 	{
@@ -27,10 +52,10 @@ char	*ft_read_get_save(int fd, char *save)
 		if (read_size == -1)
 		{
 			free(read_result);
-			return (ft_free_for_str(save));
+			return (ft_free_for_gnl(save));
 		}
 		read_result[read_size] = '\0';
-		save = ft_strjoin(save, read_result);
+		save = ft_strjoin_for_gnl(save, read_result);
 		if (save == NULL)
 			break ;
 	}
@@ -50,7 +75,7 @@ char	*ft_get_outputline(char *save)
 		i++;
 	output_line = (char *)malloc(sizeof(char) * (i + 2));
 	if (output_line == NULL)
-		return (ft_free_for_str(save));
+		return (ft_free_for_gnl(save));
 	i = 0;
 	while (save[i] != '\0' && save[i] != '\n')
 	{
@@ -77,11 +102,11 @@ char	*ft_get_next_save(char *save)
 	while (save[i] != '\0' && save[i] != '\n')
 		i++;
 	if (save[i] == '\0')
-		return (ft_free_for_str(save));
+		return (ft_free_for_gnl(save));
 	save_len = ft_strlen(save);
 	next_save = (char *)malloc(sizeof(char) * (save_len - i + 1));
 	if (next_save == NULL)
-		return (ft_free_for_str(save));
+		return (ft_free_for_gnl(save));
 	i++;
 	j = 0;
 	while (save[i] != '\0')

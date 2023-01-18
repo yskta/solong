@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 19:38:52 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/15 19:28:11 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/18 10:19:47 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ int				ft_printf(const char *fmt, ...);
 #  define BUFFER_SIZE 42
 # endif
 
-char			*ft_free_for_str(char *str);
+char	        *ft_strjoin_for_gnl(char *s1, char *s2);
+char			*ft_free_for_gnl(char *str);
 char			*ft_read_get_save(int fd, char *save);
 char			*ft_get_outputline(char *save);
 char			*ft_get_next_save(char *save);
