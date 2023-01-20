@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:18:56 by yokitaga          #+#    #+#             */
-/*   Updated: 2023/01/18 10:22:18 by yokitaga         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:25:26 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,22 @@
 char	*ft_strjoin_for_gnl(char *s1, char *s2)
 {
 	char	*p;
-	size_t	i;
-	size_t	j;
+	size_t	len_s1;
+	size_t	len_s2;
 
-	if (s1 == NULL || s2 == NULL)
+	if (s1 == NULL && s2 == NULL)
 		return (NULL);
+	if (s1 == NULL)
+		return (ft_strdup(s2));
+	if (s2 == NULL)
+		return (ft_strdup(s1));
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
 	p = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (p == NULL)
 		return (ft_free_for_gnl(s1));
-	i = 0;
-	j = 0;
-	while (s1[i] != '\0')
-	{
-		p[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0')
-		p[i++] = s2[j++];
-	p[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	ft_strlcpy(p, s1, len_s1 + 1);
+	ft_strlcpy(p + len_s1, s2, len_s2 + 1);
 	free(s1);
 	return (p);
 }
