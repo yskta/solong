@@ -31,27 +31,21 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 			9_free.c			\
 			10_put_error_and_exit.c)
 
-OBJS = $(SRCS:%.c=%.o) //オブジェクトファイルを定義
+OBJS = $(SRCS:%.c=%.o) 
 
-//mlxライブラリに関する情報を定義
 MLX_DIR = ./minilibx-linux
-MLX_LIB = -lmlx_Linux -lXext -lX11 //-mlx_linuxは、mlxライブラリをリンクするためのオプション
+MLX_LIB = -lmlx_Linux -lXext -lX11 
 MLX_INCLUDE = $(addprefix -I, $(MLX_DIR))
 
-//libftを定義
 LIB_DIR = ./library
-LIB_LIB = -lft //-lftは、 libft.so ライブラリをリンクするためのオプション
+LIB_LIB = -lft 
 LIB_INCLUDE = $(addprefix -I, $(LIB_DIR))
 
 all: mlx lib $(NAME)
 
-//-L オプションは、C言語のコンパイラに渡すリンク時に使用するライブラリのあるディレクトリを指定するためのオプション
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $(OBJS) -L$(MLX_DIR) $(MLX_LIB) -L$(LIB_DIR) $(LIB_LIB)
 
-//$<: 依存しているソースファイルの名前
-//$@: 生成されるターゲットの名前
-//$(CC) $(CFLAGS) -c main.c -o main.o
 %.o:	%.c
 	$(CC) $(CFLAGS) -c $(MLX_INCLUDE) $(LIB_INCLUDE) $< -o $@
 
